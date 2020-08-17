@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 2020_08_16_125448) do
     t.string "address_name"
     t.integer "status"
   end
-  
+
   create_table "genres", force: :cascade do |t|
     t.string "name"
     t.boolean "is_active", default: true, null: false
