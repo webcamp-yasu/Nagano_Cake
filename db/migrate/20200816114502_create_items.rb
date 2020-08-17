@@ -8,8 +8,6 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :price, null: false
       t.string :image_id, null: false
       t.boolean :is_active, null: false, default: true
-      t.datetime :created_at, null: false, default: "row"
-      t.datetime :update_at, null: false, default: "row"
     end
   end
 end
