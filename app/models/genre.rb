@@ -1,5 +1,3 @@
 class Genre < ApplicationRecord
-	belongs_to :items
-
-	enum is_active:["true", "false"]
+	#belongs_to :items
 end
