@@ -2,18 +2,18 @@ class Admin::GenresController < ApplicationController
 
 	#ジャンル一覧・追加ページ
 	def index
-		@genres = Genre.find(params[:id])
+		@genres = Genre.all
 		@genre = Genre.new
 	end
 
 	#ジャンル追加アクション
 	def create
 		@genre = Genre.new(genre_params)
-		@genre.admin_id = current_admin.id
+		#@genre.admin_id = current_admin.id
 		if @genre.save
-			redirect_to genre_path(@genre)
+			redirect_to admin_genres_path(@genre)
 		else
-			@genre.admin_id = current_admin.id
+			#@genre.admin_id = current_admin.id
 			@genres = Genre.all
 			render 'index'
 		end
