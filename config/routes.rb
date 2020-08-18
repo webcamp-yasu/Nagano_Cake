@@ -16,9 +16,6 @@ Rails.application.routes.draw do
         patch "withdraw"
       end
     end
-  end
-
-  namespace :customer do
     resources :items
     resources :cart_items
     resources :orders
