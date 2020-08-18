@@ -10,20 +10,19 @@
 			</tr>
 		</thead>
 		<tbody>
-			<%= @item.each do |item| %>
 			<tr>
-				<td><%= item.name %></td>
-				<td><%= item.introduction %></td>
-				<td><%= item.genre %></td>
-				<td><%= taxprice(item.price) %>(<%= item.price %>)</td>
+				<td><%= @item.name %></td>
+				<td><%= @item.detail %></td>
+				<td><%= @item.genre.name %></td>
+				<td><%= taxprice(@item.price) %>(<%= @item.price %>)</td>
 				<td>
-					<% if item.is_active == true %>
+					<% if @item.is_active == true %>
 						<h4>販売中</h4>
 					<% else %>
 					    <h4>販売停止</h4>
 			        <% end %>
 			    </td>
 			</tr>
-			<% end %>
+			<div><%= link_to "編集する",edit_admin_item_path %></div>
 		</tbody>
 	</table>

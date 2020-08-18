@@ -15,35 +15,32 @@ class Admin::ItemsController < ApplicationController
 	def create
 		@item = Item.new(item_params)
 		@item.save
-		redirect_to # 商品一覧ページのpath
+		redirect_to admin_items_path
 	end
 
 	# 商品詳細ページ
 	def show
-		@item = Item.find(prams[:id])
+		@item = Item.find(params[:id])
 	end
 
 	# 商品編集ページ
 	def edit
-		@item = Item.find(prams[:id])
+		@item = Item.find(params[:id])
 	end
 
 	# 商品編集アクション
 	def update
-		@item = Item.find(prams[:id])
+		@item = Item.find(params[:id])
 		if @item.update(item_params)
 			flash[:success] = "商品情報を編集しました"
 		    redirect_to #商品詳細ページのpath
 		else
 			render :edit
 	end
-
-    def　taxprice
-    	@tax = Item.price * 1.1
     end
 	private
 
 	def item_params
-		params.require(:Item).permit(:name,:image_id,:introduction,:price,:is_active)
+		params.require(:item).permit(:name,:image,:detail,:price,:is_active,:genre_id)
   end
 end

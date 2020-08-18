@@ -1,5 +1,4 @@
 class Item < ApplicationRecord
-	def taxprice(price)
-		price * 1.1
-	end
+	belongs_to :genre
+	attachment :image
 end
