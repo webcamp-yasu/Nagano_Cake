@@ -1,0 +1,23 @@
+<h1>商品新規登録</h1>
+<%= form_for(@item) do |f| %>
+
+<%= f.attachment_field :image %>
+
+<%= f.label :"商品名" %>
+<%= f.text_field :name %>
+
+<%= f.label :"商品説明" %>
+<%= f.text_field :name %>
+
+<%= f.label :"ジャンル" %>
+<%= f.collection_select :genre_id, Genre.all, :id, :name %>
+
+<%= f.label :"税抜価格" %>
+<%= f.number_field :price %>"円"
+
+<%= f.label :"販売ステータス" %>
+<%= f.select :is_active,[["販売中",true],["販売中止",false]] %>
+
+<%= f.submit '新規登録'%>
+
+<% end %>
