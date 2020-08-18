@@ -11,7 +11,7 @@
   <body>
     <header>
       <% if customer_signed_in? %>
-        <li><%= link_to "マイページ", customers_mypage_path %></li>
+        <li><%= link_to "マイページ", mypage_customers_path %></li>
         <!-- 商品一覧 -->
         <!-- カート -->
         <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
