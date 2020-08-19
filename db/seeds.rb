@@ -11,6 +11,20 @@ Admin.create!(
   password: "password"
 )
 
+15.times do |n|
+  Customer.create!(
+    last_name: "鈴木",
+    first_name: "太郎#{n + 1}",
+    last_name_kana: "スズキ",
+    first_name_kana: "タロウ",
+    email: "test#{n + 1}@test.com",
+    postal_code: "0001111",
+    address: "東京都渋谷区11111",
+    phone_number: "00011112222",
+    password: "password"
+  )
+end
+
 Genre.create!(
  name: 'ケーキ'
  )
