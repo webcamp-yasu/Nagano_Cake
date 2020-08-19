@@ -5,11 +5,13 @@
   <div class="field form-group">
     <%= f.label :"メールアドレス" %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    （テストアカウント：test1@test.com）
   </div>
 
   <div class="field form-group">
     <%= f.label :"パスワード" %>
     <%= f.password_field :password, autocomplete: "current-password" %>
+    （パスワード：password）
   </div>
 
   <div class="pull-right">

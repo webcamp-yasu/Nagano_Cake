@@ -8,12 +8,13 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript" src="//jpostal-1006.appspot.com/jquery.jpostal.js"></script>
   </head>
 <body>
   <header class="navbar navbar-fixed-top　navbar-light">
     <div class="container">
       <nav class="nav navbar-nav navbar-left">
-        <h2>LOGO</h2>
+        <h1>Nagano Cake</h1>
       </nav>
       <nav>
         <ul class="nav navbar-nav navbar-right">
@@ -26,7 +27,7 @@
           <% elsif admin_signed_in? %>
           <li><%= link_to "商品一覧", admin_items_path %></li>
           <li><%= link_to "会員一覧", admin_customers_path %></li>
-          <li><%= link_to "注文履歴一覧", items_path %></li>
+          <li><%= link_to "注文履歴一覧", admin_orders_path %></li>
           <li><%= link_to "ジャンル一覧", admin_genres_path %></li>
           <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
         <% else %>

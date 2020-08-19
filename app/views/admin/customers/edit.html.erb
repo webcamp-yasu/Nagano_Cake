@@ -5,7 +5,8 @@
   <!-- エラーメッセージ -->
 
   <div class="form-group">
-    <%= f.label :"会員ID" %>
+    <!-- ID が小文字になってしまうので2つ記載-->
+    <%= f.label :"会員ID", "会員ID　　", class: "control-label" %>
     <%= f.label :"#{@customer.id}" %>
   </div>
 
