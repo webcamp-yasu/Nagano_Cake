@@ -66,4 +66,10 @@ gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 gem 'refile-mini_magick'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
+<<<<<<< HEAD
 gem 'kaminari'
+=======
+gem 'kaminari'
+gem 'enum_help'
+gem 'rails-i18n'
+>>>>>>> 1efff90ddf9aa67279062e74df4bc6a2ee905c18

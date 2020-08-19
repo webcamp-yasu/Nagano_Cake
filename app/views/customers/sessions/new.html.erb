@@ -2,6 +2,7 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
+<<<<<<< HEAD
   <div class="field">
     <%= f.label :"メールアドレス" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -9,6 +10,15 @@
 
   <div class="field">
     <%= f.label :"パスワード" %><br />
+=======
+  <div class="field form-group">
+    <%= f.label :"メールアドレス" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :"パスワード" %>
+>>>>>>> 1efff90ddf9aa67279062e74df4bc6a2ee905c18
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
@@ -22,5 +32,9 @@
 <% end %>
 
 <h3>登録がお済みでない方</h3>
+<<<<<<< HEAD
 <p><%= render "customers/shared/links" %>から新規登録を行ってください。</p>
+=======
+<p><%= link_to "こちら", new_customer_registration_path %>から新規登録を行ってください。</p>
+>>>>>>> 1efff90ddf9aa67279062e74df4bc6a2ee905c18
 

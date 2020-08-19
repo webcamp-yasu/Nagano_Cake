@@ -4,7 +4,7 @@ class Admin::CustomersController < ApplicationController
   # before_action :authenticate_admin!
 
   def index #会員一覧ページ
-    @customers = Customer.all
+    @customers = Customer.page(params[:page]).per(10)
   end
 
   def show #会員詳細ページ

@@ -1,8 +1,20 @@
 Rails.application.routes.draw do
 
+<<<<<<< HEAD
   devise_for :admins, controllers: {
     sessions: "admins/sessions"
   }
+=======
+  devise_for :admins,
+    path: '',
+    path_names: {
+      sign_in: "admin/sign_in",
+      sign_out: "admin/sign_out"
+    },
+    controllers: {
+      sessions: "admins/sessions"
+    }
+>>>>>>> 1efff90ddf9aa67279062e74df4bc6a2ee905c18
 
   devise_for :customers, controllers: {
     registrations: "customers/registrations",
