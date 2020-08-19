@@ -69,14 +69,14 @@ ActiveRecord::Schema.define(version: 2020_08_18_081048) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "name", null: false
     t.text "detail", null: false
     t.integer "genre_id", null: false
     t.integer "price", null: false
     t.string "image_id", null: false
     t.boolean "is_active", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "order_details", force: :cascade do |t|
