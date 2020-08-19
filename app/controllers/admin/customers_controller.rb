@@ -1,5 +1,8 @@
 class Admin::CustomersController < ApplicationController
 
+  #管理者ユーザーだけアクセスできる
+  # before_action :authenticate_admin!
+
   def index #会員一覧ページ
     @customers = Customer.all
   end
@@ -16,7 +19,7 @@ class Admin::CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
     if @customer.update(customer_params)
       flash[:success] = "会員情報変更しました"
-      redirect_to #会員詳細ページ
+      redirect_to admin_customer_path(@customer)
     else
       render :edit
     end
