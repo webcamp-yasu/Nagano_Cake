@@ -1,6 +1,6 @@
 <h2>会員一覧</h2>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>会員ID</th>
@@ -13,14 +13,8 @@
     <% @customers.each do |customer| %>
       <tr>
         <td><%= customer.id %></td>
-      </tr>
-      <tr>
-        <td><!-- %= link_to フルネーム(customer), admin_customer_path(customer), class: “btn-link” % --></td>
-      </tr>
-      <tr>
+        <td><%= link_to full_name(customer), admin_customer_path(customer), class: "btn-link" %></td>
         <td><%= customer.email %></td>
-      </tr>
-      <tr>
         <td>
           <% if customer.is_deleted == true %>
             <p>退会済</p>
@@ -30,5 +24,6 @@
         </td>
       </tr>
     <% end %>
+    <%= paginate @customers %>
   </tbody>
 </table>

@@ -1,0 +1,28 @@
+<h1>商品詳細</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>商品名</th>
+				<th>商品説明</th>
+				<th>ジャンル</th>
+				<th>税込価格(税抜価格)</th>
+				<th>販売ステータス</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%= @item.name %></td>
+				<td><%= @item.detail %></td>
+				<td><%= @item.genre.name %></td>
+				<td><%= taxprice(@item.price) %>(<%= @item.price %>)</td>
+				<td>
+					<% if @item.is_active == true %>
+						<h4>販売中</h4>
+					<% else %>
+					    <h4>販売停止</h4>
+			        <% end %>
+			    </td>
+			</tr>
+			<div><%= link_to "編集する",edit_admin_item_path %></div>
+		</tbody>
+	</table>
