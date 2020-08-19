@@ -1,6 +1,6 @@
 class Customer::CustomersController < ApplicationController
 
-  before_action :authenticate_customer!
+  #before_action :authenticate_customer!
   #ログインしていないとアクセスできなくする
 
   def show #マイページ
