@@ -18,31 +18,31 @@
 	<% end %>
 </div>
 
-<table>
+<table class="table table-bordered">
 	<thead>
 		<tr>
-			<th>郵便番号</th>
-			<th>住所</th>
-			<th>宛名</th>
-			<th></th>
+			<th scope="col">郵便番号</th>
+			<th scope="col">住所</th>
+			<th scope="col">宛名</th>
+			<th scope="col"></th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<% @addresses.each do |address| %>
 		<tr>
-			<td>
+			<td scope="row">
 				<%= address.postal_code %>
 			</td>
 
-			<td>
+			<td scope="row">
 				<%= address.address %>
 			</td>
 
-			<td>
+			<td scope="row">
 				<%= address.name %>
 			</td>
-			<td>
+			<td scope="row">
 				<%= link_to "編集する", edit_address_path(address), class: "btn-sm btn-primary edit_address_#{address.id}" %>
 				<%= link_to "削除する", address_path(address), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger destroy_address_#{address.id}" %>
 			</td>

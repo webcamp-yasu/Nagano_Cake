@@ -26,6 +26,7 @@ Admin.create!(
   )
 end
 
+
 Genre.create!(
  name: 'ケーキ'
  )
@@ -69,3 +70,6 @@ Order.create!([
  	created_at: "2020/08/19 20:23"
    }
    ])
+
+
+

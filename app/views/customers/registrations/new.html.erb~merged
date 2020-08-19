@@ -21,7 +21,11 @@
 
 
   <div class="field form-group">
+<<<<<<< HEAD
     <%= f.label :"メールアドレス" %><br />
+=======
+    <%= f.label :"メールアドレス" %>
+>>>>>>> 1efff90ddf9aa67279062e74df4bc6a2ee905c18
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
@@ -46,12 +50,16 @@
   </div>
 
   <div class="field form-group">
-    <%= f.label :"パスワード（確認用）" %>
+    <%= f.label :"パスワード（確認用）" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="actions">
+<<<<<<< HEAD
     <%= f.submit "新規登録", class: "btn btn-primary" %>
+=======
+    <%= f.submit "新規登録", class: "btn btn-success" %>
+>>>>>>> 1efff90ddf9aa67279062e74df4bc6a2ee905c18
   </div>
 <% end %>
 

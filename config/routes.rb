@@ -1,14 +1,20 @@
 Rails.application.routes.draw do
 
-  devise_for :admins,
-    path: '',
-    path_names: {
-      sign_in: "admin/sign_in",
-      sign_out: "admin/sign_out"
-    },
-    controllers: {
-      sessions: "admins/sessions"
-    }
+
+  devise_for :admins
+  #   sessions: "admins/sessions"
+  # }
+
+  # devise_for :admins,
+  #   path: '',
+  #   path_names: {
+  #     sign_in: "admin/sign_in",
+  #     sign_out: "admin/sign_out"
+  #   },
+  #   controllers: {
+  #     sessions: "admins/sessions"
+  #   }
+
 
   devise_for :customers, controllers: {
     registrations: "customers/registrations",
