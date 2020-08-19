@@ -6,18 +6,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-<<<<<<< HEAD
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body>
-    <header>
-      <ul>
-        <% if customer_signed_in? %>
-=======
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-</head>
 <body>
   <header class="navbar navbar-fixed-top　navbar-light">
     <div class="container">
@@ -27,39 +18,25 @@
       <nav>
         <ul class="nav navbar-nav navbar-right">
           <% if customer_signed_in? %>
->>>>>>> 1efff90ddf9aa67279062e74df4bc6a2ee905c18
           <li>ようこそ、<%= full_name(current_customer) %>さん！</li>
           <li><%= link_to "マイページ", mypage_customers_path %></li>
           <li><%= link_to "商品一覧", items_path %></li>
           <li><%= link_to "カート", cart_items_path %></li>
           <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
-<<<<<<< HEAD
-        <% elsif admin_signed_in? %>
-=======
           <% elsif admin_signed_in? %>
->>>>>>> 1efff90ddf9aa67279062e74df4bc6a2ee905c18
           <li><%= link_to "商品一覧", admin_items_path %></li>
           <li><%= link_to "会員一覧", admin_customers_path %></li>
           <li><%= link_to "注文履歴一覧", items_path %></li>
           <li><%= link_to "ジャンル一覧", admin_genres_path %></li>
           <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
-<<<<<<< HEAD
         <% else %>
-=======
-          <% else %>
->>>>>>> 1efff90ddf9aa67279062e74df4bc6a2ee905c18
           <!-- 管理者ログイン機能（ワイヤーフレームにはない） -->
           <li><%= link_to "管理者ログイン", new_admin_session_path %></li>
           <li><%= link_to "About", about_path %></li>
           <li><%= link_to "商品一覧", items_path %></li>
           <li><%= link_to "新規登録", new_customer_registration_path %></li>
           <li><%= link_to "ログイン", new_customer_session_path %></li>
-<<<<<<< HEAD
         <% end %>
-      </ul>
-    </header>
-=======
-          <% end %>
         </ul>
       </nav>
     </div>
@@ -67,7 +44,6 @@
   <!-- レイアウト見にくいのでとりあえず下記追加 -->
   <div class="container">
     <p id="notice"><%= notice %></p>
->>>>>>> 1efff90ddf9aa67279062e74df4bc6a2ee905c18
     <%= yield %>
   </div>
 </body>

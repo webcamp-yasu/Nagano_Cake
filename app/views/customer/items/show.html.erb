@@ -1,0 +1,22 @@
+
+<div class="row">
+	<div class="col-xs-2">
+		<h3>ジャンル検索</h3>
+
+	<% @genres.each do |genre| %>
+	<%= genre.name %>
+	<% end %>
+
+	</div>
+	<div class="col-xs-6">
+		<%= attachment_image_tag(@item,:image, :fill,300,200) %>
+	</div>
+	<div class="col-xs-4">
+		<div><%= @item.name %></div>
+		<div><%= @item.detail %></div>
+		<div><%= taxprice(@item.price) %><p>(税込)</p></div>
+	</div>
+</div>
+
+
+<!-- render ジャンル検索が入ってくる -->
