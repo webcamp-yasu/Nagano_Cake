@@ -2,29 +2,17 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-<<<<<<< HEAD
-  <div class="field">
-=======
   <div class="field form-group">
->>>>>>> 1efff90ddf9aa67279062e74df4bc6a2ee905c18
-    <%= f.label :"メールアドレス" %><br />
+    <%= f.label :"メールアドレス" %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-<<<<<<< HEAD
-  <div class="field">
-=======
   <div class="field form-group">
->>>>>>> 1efff90ddf9aa67279062e74df4bc6a2ee905c18
-    <%= f.label :"パスワード" %><br />
+    <%= f.label :"パスワード" %>
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
   <div class="actions">
-<<<<<<< HEAD
-    <%= f.submit "ログイン" %>
-=======
     <%= f.submit "ログイン", class:"btn btn-primary" %>
->>>>>>> 1efff90ddf9aa67279062e74df4bc6a2ee905c18
   </div>
 <% end %>
