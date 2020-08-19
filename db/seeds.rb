@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Admin.create!(
-  id: 1,
   email: 'admin@gmail.com',
   password: 'password'
 )
@@ -29,20 +28,6 @@ end
 Genre.create!(
  name: 'ケーキ'
  )
-
-Customer.create!(
-	id: 1,
-    last_name: 'テスト姓',
-    first_name: 'テスト名',
-    last_name_kana: 'テスト',
-    first_name_kana: 'ナマエ',
-    postal_code: '1111111',
-    address: '東京都新宿区',
-    phone_number: '11111111',
-    email: 'test@customer',
-    is_deleted: false,
-    password: '111111'
-	)
 
 Order.create!([
 	{
@@ -70,3 +55,5 @@ Order.create!([
  	created_at: "2020/08/19 20:23"
    }
    ])
+
+

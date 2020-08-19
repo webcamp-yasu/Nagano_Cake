@@ -5,11 +5,17 @@ class Admin::OrdersController < ApplicationController
 	end
 	def show
 		@order = Order.find(params[:id])
-		@order_detail_all = Order_detail.all.sum(:price)
 		@customer = @order.customer
-		order_detail = @order.order_detail
-		
+		@order_details = @order.order_details
+
+
 	end
 	def update
+		@order.update(order_params)
+		redirect_to admin_orders_path(order)
 	end
+	  private
+	  def order_params
+	    params.require(:order).permit(:customer_id, :postage, :billing_amount, :payment_method, :postal_code, :address, :address_name, :status, :created_at)
+	  end
 end
