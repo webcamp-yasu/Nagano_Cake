@@ -4,8 +4,8 @@
 		<tr>
 			<td>購入者</td>
 			<td>
-				<%= link_to admin_customer(@customer) do %>
-							<%= @order.customer.last_name %><%= @order.customer.first_name %>
+				<%= link_to admin_customer(@customer.id) do %>
+							<%= @customer.last_name %><%= @customer.first_name %>
 				<% end %>
 			</td>
 		</tr>
