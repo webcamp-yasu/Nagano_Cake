@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
 
-  devise_for :admins
-  devise_for :customers
+  devise_for :admins, controllers: {
+    sessions: "admins/sessions"
+  }
+
+  devise_for :customers, controllers: {
+    registrations: "customers/registrations",
+    sessions: "customers/sessions"
+  }
 
   #Customer
 
@@ -9,10 +15,15 @@ Rails.application.routes.draw do
   get "about" => "customer/homes#about"
 
   scope module: :customer do
-    resources :customers, only: [:show, :edit, :update] do
+
+    #デフォルトだとdeviseの編集ページに跳んでしまうので指定
+    get "customer/edit" => "customers#edit"
+    put "customer" => "customers#update"
+
+    resources :customers, only: [:show] do
       collection do
         get "mypage" => "customers#show"
-        get "cancel"
+        get "quit"
         patch "withdraw"
       end
     end
