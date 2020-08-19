@@ -1,83 +1,47 @@
 <h2><%= full_name(@customer) %>さんの会員情報編集</h2>
 
-<<<<<<< HEAD
-<%= form_for(@customer) do |f| %>
-
-  <!-- エラーメッセージ -->
-
-  <div class=”form-group”>
-=======
 <%= form_for(@customer, url: admin_customer_path) do |f| %>
 
   <!-- エラーメッセージ -->
 
   <div class="form-group">
->>>>>>> 1efff90ddf9aa67279062e74df4bc6a2ee905c18
     <%= f.label :"会員ID" %>
     <%= f.label :"#{@customer.id}" %>
   </div>
 
-<<<<<<< HEAD
-  <div class=”form_group”>
-=======
   <div class="form-group">
->>>>>>> 1efff90ddf9aa67279062e74df4bc6a2ee905c18
     <%= f.label :"氏名" %>
     <%= f.text_field :last_name %>
     <%= f.text_field :first_name %>
   </div>
 
-<<<<<<< HEAD
-  <div class=”form_group”>
-=======
   <div class="form-group">
->>>>>>> 1efff90ddf9aa67279062e74df4bc6a2ee905c18
     <%= f.label :"フリガナ" %>
     <%= f.text_field :last_name_kana %>
     <%= f.text_field :first_name_kana %>
   </div>
 
-<<<<<<< HEAD
-  <div class=”form_group”>
-=======
   <div class="form-group">
->>>>>>> 1efff90ddf9aa67279062e74df4bc6a2ee905c18
     <%= f.label :"郵便番号" %>
     <%= f.text_field :postal_code %>
   </div>
 
-<<<<<<< HEAD
-  <div class=”form_group”>
-=======
   <div class="form-group">
->>>>>>> 1efff90ddf9aa67279062e74df4bc6a2ee905c18
     <%= f.label :"住所" %>
     <%= f.text_field :address %>
   </div>
 
-<<<<<<< HEAD
-  <div class=”form_group”>
-=======
   <div class="form-group">
->>>>>>> 1efff90ddf9aa67279062e74df4bc6a2ee905c18
     <%= f.label :"電話番号" %>
     <%= f.text_field :phone_number %>
   </div>
 
-<<<<<<< HEAD
-  <div class=”form_group”>
-=======
   <div class="form-group">
->>>>>>> 1efff90ddf9aa67279062e74df4bc6a2ee905c18
     <%= f.label :"メールアドレス" %>
     <%= f.email_field :email %>
   </div>
 
-<<<<<<< HEAD
-  <div class=”form_group”>
-=======
   <div class="form-group">
->>>>>>> 1efff90ddf9aa67279062e74df4bc6a2ee905c18
     <%= f.label :"会員ステータス" %>
     <%= f.radio_button :is_deleted, false %>
     <%= f.label :is_deleted, "有効", {value: :false, style: "display: inline-block;"}%>
@@ -85,11 +49,7 @@
     <%= f.label :is_deleted, "退会済", {value: :true, style: "display: inline-block;"}%>
   </div>
 
-<<<<<<< HEAD
-  <div class=”actions”>
-=======
   <div class="actions">
->>>>>>> 1efff90ddf9aa67279062e74df4bc6a2ee905c18
     <%= f.submit "変更を保存する", class: "btn btn-primary" %>
   </div>
 
