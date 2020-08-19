@@ -31,7 +31,6 @@ Genre.create!(
  )
 
 Customer.create!(
-	id: 1,
     last_name: 'テスト姓',
     first_name: 'テスト名',
     last_name_kana: 'テスト',
