@@ -1,4 +1,5 @@
 class Customer::AddressesController < ApplicationController
+	before_action :authenticate_customer!
 
 	#配送先一覧ページ・登録ページ
 	def index
