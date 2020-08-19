@@ -7,12 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Admin.create!(
-<<<<<<< HEAD
-  email: "admin@gmail.com",
-  password: "password"
-)
-
-=======
   id: 1,
   email: 'admin@gmail.com',
   password: 'password'
@@ -32,13 +26,11 @@ Admin.create!(
   )
 end
 
->>>>>>> 1efff90ddf9aa67279062e74df4bc6a2ee905c18
+
 Genre.create!(
  name: 'ケーキ'
  )
 
-<<<<<<< HEAD
-=======
 Customer.create!(
     last_name: 'テスト姓',
     first_name: 'テスト名',
@@ -78,4 +70,4 @@ Order.create!([
  	created_at: "2020/08/19 20:23"
    }
    ])
->>>>>>> 1efff90ddf9aa67279062e74df4bc6a2ee905c18
+
