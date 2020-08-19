@@ -16,7 +16,7 @@ Rails.application.routes.draw do
         patch "withdraw"
       end
     end
-    resources :items
+    resources :items, omly: [:index,:show]
     resources :cart_items
     resources :orders
     resources :addresses
