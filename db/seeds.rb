@@ -11,3 +11,7 @@ Admin.create!(
   password: "password"
 )
 
+Genre.create!(
+ name: 'ケーキ'
+ )
+
