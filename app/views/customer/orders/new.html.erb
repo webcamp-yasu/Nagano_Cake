@@ -1,3 +1,14 @@
 <h1>注文情報入力</h1>
 	<h2>支払方法</h2>
-		
+		<%= form_for @order, url: orders_path, class: "form-inline" do |f| %>
+		<%= f.radio_button :payment_method, :true %>
+		<%= f.label :payment_method, "クレジットカード", {value: :true, style: "display: inline-block;"} %>
+		<%= f.radio_button :payment_method, :false %>
+		<%= f.label :payment_method, "銀行振込", {value: :false, style: "display: inline-block;"} %>
+
+	<h2>お届け先</h2>
+		<%= f.radio_button :address %>
+		<%= f.label :address,"ご自身の住所", Customer.address %>
+
+		<%= f.radio_button :address %>
+		<%= f.label :address,"登録住所から選択",
