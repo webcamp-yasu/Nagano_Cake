@@ -17,11 +17,17 @@
  @import "bootstrap";
 
  /* flash message */
+
  #notice {
    color: green;
  }
 
+ #error_explanation {
+   color: red;
+ }
+
  /* badge */
+
  .badge-success {
    background-color: green;
  }
