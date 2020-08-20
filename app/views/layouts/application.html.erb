@@ -42,6 +42,31 @@
       </nav>
     </div>
   </header>
+  <!-- 管理者検索機能 -->
+  <div class="container">
+    <% if admin_signed_in? %>
+    <div class="search-form" style="text-align: right;">
+      <strong>会員（メールアドレスのみ対応）/ 商品検索（商品名のみ対応）</strong>
+      <%= form_tag(admin_search_path, method: :get) do %>
+      <%= text_field_tag 'search[content]' %>
+      <%= select_tag 'search[model]', options_for_select({"会員" => 'customer', "商品" => "item"}) %>
+      <%= select_tag 'search[method]', options_for_select({"完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial"}) %>
+      <%= submit_tag '検索' %>
+      <% end %>
+    </div>
+    <% end %>
+    <!-- 会員検索機能 -->
+    <% if customer_signed_in? %>
+    <div class="search-form" style="text-align: right;">
+      <strong>商品検索（商品名で検索してください）</strong>
+      <%= form_tag(search_path, method: :get) do %>
+      <%= text_field_tag 'search[content]' %>
+      <%= select_tag 'search[method]', options_for_select({"完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial"}) %>
+      <%= submit_tag '検索' %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
   <!-- レイアウト見にくいのでとりあえず下記追加 -->
   <div class="container">
     <p id="notice"><%= notice %></p>
