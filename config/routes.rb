@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     #デフォルトだとdeviseの編集ページに跳んでしまうので指定
     get "customer/edit" => "customers#edit"
     put "customer" => "customers#update"
+    get "/search" => "search#search"
 
     resources :customers, only: [:show] do
       collection do
@@ -44,6 +45,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root 'homes#top'
+    get "/search" => "search#search"
     resources :customers, only: [:index, :show, :edit, :update]
     resources :items
     resources :genres

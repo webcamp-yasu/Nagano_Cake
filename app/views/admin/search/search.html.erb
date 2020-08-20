@@ -1,0 +1,36 @@
+<% if @model == 'customer' %>
+  <h2>「<%= @content %>」  と一致した会員</h2>
+  <%= render 'admin/customers/index', customers: @records %>
+<% else @model == 'item' %>
+  <h2>「<%= @content %>」  と一致した商品</h2>
+  <!-- 後で部分テンプレート使えたら -->
+  <table>
+    <thead>
+      <tr>
+        <th>商品ID</th>
+        <th>商品名</th>
+        <th>税抜価格</th>
+        <th>ジャンル</th>
+        <th>ステータス</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @records.each do |item| %>
+      <tr>
+        <td><%= item.id %></td>
+        <td><%= item.name %></td>
+        <td><%= item.price %></td>
+        <td><%= item.genre.name %></td>
+        <td>
+          <% if item.is_active == true %>
+          <h4>販売中</h4>
+          <% else %>
+          <h4>販売停止</h4>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <!-- 後で部分テンプレート使えたら -->
+<% end %>
