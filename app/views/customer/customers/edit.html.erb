@@ -1,17 +1,17 @@
 <h2>登録情報編集</h2>
 
-<%= form_with model: @customer, url: customer_path, method: :PUT do |f| %>
+<%= form_for(@customer, url: customer_path, method: :PUT) do |f| %>
 
-  <% if @customer.errors.any? %>
-  <div id="error_explanation">
-    <h3><%= @customer.errors.count %>件のエラーが発生しました</h3>
-    <ul>
-      <% @customer.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-  <% end %>
+<% if @customer.errors.any? %>
+<div id="error_explanation">
+  <h3><%= @customer.errors.count %>件のエラーが発生しました</h3>
+  <ul>
+    <% @customer.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
   <div class="form-group">
     <%= f.label :"名前" %>

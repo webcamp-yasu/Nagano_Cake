@@ -4,7 +4,7 @@
 
 <% if @customer.errors.any? %>
 <div id="error_explanation">
-  <h3><%= @customer.errors.count %>件のエラーが発生しました</h3><
+  <h3><%= @customer.errors.count %>件のエラーが発生しました</h3>
   <ul>
     <% @customer.errors.full_messages.each do |message| %>
     <li><%= message %></li>
