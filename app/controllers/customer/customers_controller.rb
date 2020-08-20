@@ -13,7 +13,7 @@ class Customer::CustomersController < ApplicationController
   def withdraw #退会アクション
     @customer = current_customer
     @customer.update(is_deleted: true)
-    flash[:success] = "退会処理が完了いたしました"
+    flash[:notice] = "退会処理が完了いたしました"
     redirect_to root_path
   end
 
@@ -24,10 +24,10 @@ class Customer::CustomersController < ApplicationController
   def update #更新アクション
     @customer = current_customer
     if @customer.update(customer_params)
-      flash[:success] = "登録情報を変更しました"
+      flash[:notice] = "登録情報を変更しました"
       redirect_to mypage_customers_path
     else
-      render :edit
+      render "edit"
     end
   end
 
