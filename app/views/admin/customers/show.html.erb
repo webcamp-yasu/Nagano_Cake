@@ -7,15 +7,9 @@
       <td>
         <%= @customer.id %>
         <% if @customer.is_deleted == true %>
-<<<<<<< HEAD
           <span class="badge badge-danger">退会済</span>
         <% else %>
-          <span class="badge badge-primary">有効会員</span>
-=======
-          <span class="badge">退会済</span>
-        <% else %>
-          <span class="badge">有効会員</span>
->>>>>>> 1efff90ddf9aa67279062e74df4bc6a2ee905c18
+          <span class="badge badge-success">有効会員</span>
         <% end %>
       </td>
     </tr>

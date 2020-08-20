@@ -4,7 +4,7 @@
 		<tr>
 			<td>購入者</td>
 			<td>
-				<%= link_to admin_customer(@customer.id) do %>
+				<%= link_to admin_customers_path(@customer) do %>
 							<%= @customer.last_name %><%= @customer.first_name %>
 				<% end %>
 			</td>
@@ -19,16 +19,16 @@
 		</tr>
 		<tr>
 			<td>注文ステータス</td>
-			<td><%= form.select :status, Order.status.keys, :selected=>Order.status[@order.status] %>
-<!-- 		<%= select :status,:name,Order.status.keys.to_a %> -->
-				<%= f.submit '更新', class:"btn btn-primary" %>
-
+			<td><%= form_with model: @order do |f| %>
+                    	<%= f.select :status, Order.statuses_i18n.keys.map { |k| [Order.statuses_i18n[k], k]} %>
+                    	<%= f.submit '更新'%>
+            	<% end %>
 			</td>
 		</tr>
 	</tbody>
 </table>
 
-<table>
+<table class="table">
 	<thead>
 		<tr class="active">
 			<th>商品名</th>
@@ -39,15 +39,37 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<td><%= @order_detail.item.name %></td>
-			<td><%= @order_detail.price %></td>
-			<td><%= @order_detail.amounnt %></td>
-			<td><%= @order_detail_all %></td>
-
-			<td><%= form.select :production_status, Order_detail.production_status.keys, :selected=>Order_detail.production_status[@order_detail.production_status] %>
-				<%= f.submit '更新' class:"btn btn-primary" %>
-			</td>
-		</tr>
+		<% @order.order_details.each do |order_detail| %>
+			<tr>
+				<td><%= order_detail.item.name %></td>
+				<td><%= (order_detail.item.price).to_i %></td>
+				<td><%= order_detail.amount %></td>
+				<td><%= (order_detail.total_price).to_i %></td>
+				<td><%= form_with model: order_detail do |f| %>
+	                    	<%= f.select :production_status, Order_detail.production_statuses_i18n.keys.map { |k| [Order_detail.production_statuses_i18n[k], k]} %>
+	                    	<%= f.submit '更新' %>
+	            	<% end %>
+				</td>
+			</tr>
+		<% end %>
 	</tbody>
 </table>
+
+<div class="pull-right">
+	<table>
+		<tbody>
+			<tr>
+				<td>商品合計</td>
+				<td><%= (@order.total_price).to_i %>円</td>
+			</tr>
+			<tr>
+				<td>送料</td>
+				<td><%= @order.postage %>円</td>
+			</tr>
+			<tr>
+				<td>請求金額合計</td>
+				<td><%= @order.billing_amount %>円</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

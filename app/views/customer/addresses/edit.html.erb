@@ -1,7 +1,16 @@
-<h4>配送先編集ページ</h4>
+<h4>配送先編集</h4>
 
 <div>
-	<%= form_for @address, url: address_path do |f| %>
+<%= form_for @address, url: address_path do |f| %>
+<% if @address.errors.any? %>
+<div id="error_explanation">
+	<h3><%= @address.errors.count %>error prohibited this obj from being saved:</h3>
+	<ul>
+		<% @address.errors.full_messages.each do |message| %>
+		<li><%= message %></li>
+		<% end %>
+		<% end %>
+	</ul>
 	<%= f.label :"郵便番号(ハイフンなし)" %>
 	<%= f.text_field :postal_code %>
 </div>
@@ -16,4 +25,6 @@
 	<%= f.text_field :name %>
 	<%= f.submit "編集する", class: "btn btn-primary" %>
 	<% end %>
+</div>
+
 </div>

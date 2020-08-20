@@ -1,30 +1,35 @@
-<h2>管理者ログイン</h2>
+<div class="row">
+  <div class="col-xs-2"></div>
+  <div class="col-xs-8">
+    <h2>管理者ログイン</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= render "admins/shared/error_messages", resource: resource %>
 
-<<<<<<< HEAD
-  <div class="field">
-=======
-  <div class="field form-group">
->>>>>>> 1efff90ddf9aa67279062e74df4bc6a2ee905c18
-    <%= f.label :"メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <div id="error_explanation">
+      <%= flash[:alert] %>
+    </div>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+    <div class="field form-group">
+      <%= f.label :"メールアドレス" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      （管理者アカウント：admin@gmail.com）
+    </div>
+
+    <div class="field form-group">
+      <%= f.label :"パスワード" %>
+      <%= f.password_field :password, autocomplete: "current-password" %>
+      （パスワード：password）
+    </div>
+
+    <div class="actions">
+      <%= f.submit "ログイン", class:"btn btn-primary" %>
+    </div>
+    <% end %>
   </div>
+  
+  <div class="col-xs-2"></div>
+</div>
 
-<<<<<<< HEAD
-  <div class="field">
-=======
-  <div class="field form-group">
->>>>>>> 1efff90ddf9aa67279062e74df4bc6a2ee905c18
-    <%= f.label :"パスワード" %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
 
-  <div class="actions">
-<<<<<<< HEAD
-    <%= f.submit "ログイン" %>
-=======
-    <%= f.submit "ログイン", class:"btn btn-primary" %>
->>>>>>> 1efff90ddf9aa67279062e74df4bc6a2ee905c18
-  </div>
-<% end %>
