@@ -42,6 +42,7 @@
 			<td scope="row">
 				<%= address.name %>
 			</td>
+
 			<td scope="row">
 				<%= link_to "編集する", edit_address_path(address), class: "btn-sm btn-primary edit_address_#{address.id}" %>
 				<%= link_to "削除する", address_path(address), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger destroy_address_#{address.id}" %>
