@@ -15,4 +15,19 @@
 //= require turbolinks
 //= require jquery
 //= require bootstrap-sprockets
+//= require jquery.jposta
 //= require_tree .
+
+// 住所検索機能
+$(function(){
+  $(document).on('turbolinks:load', () => {
+    $('#customer_postal_code').jpostal({
+      postcode: [
+        '#customer_postal_code'
+      ],
+      address: {
+        "#customer_address": "%3%4%5%6%7"
+      }
+    });
+  });
+});

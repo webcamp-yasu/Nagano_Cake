@@ -10,7 +10,6 @@ Rails.application.routes.draw do
       sessions: "admins/sessions"
     }
 
-
   devise_for :customers, controllers: {
     registrations: "customers/registrations",
     sessions: "customers/sessions",
