@@ -10,28 +10,27 @@ class Admin::GenresController < ApplicationController
 	#ジャンル追加アクション
 	def create
 		@genre = Genre.new(genre_params)
-		@genre.save
-		redirect_to admin_genres_path
+		if @genre.save
+			redirect_to admin_genres_path
+		else
+			@genres = Genre.all
+			render "index"
+		end
 	end
 
 	#ジャンル編集ページ
 	def edit
 		@genre = Genre.find(params[:id])
-		#@admin = @genre.admin
-		#if @admin != current_admin
-			#redirect_to genre_path
-		#end
 	end
 
 	#ジャンル編集アクション
 	def update
 		@genre = Genre.find(params[:id])
-		#if
-		@genre.update(genre_params)
+		if @genre.update(genre_params)
 			redirect_to admin_genres_path
-		#else
-			#render "edit"
-		#end
+		else
+			render "edit"
+		end
 	end
 
 	private
