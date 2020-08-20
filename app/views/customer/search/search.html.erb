@@ -1,0 +1,8 @@
+<h2>「<%= @content %>」  と一致した商品</h2>
+<!-- 後で部分テンプレート使えたら -->
+<% @records.each do |item| %>
+<%= attachment_image_tag(item,:image, :fill,100,100) %>
+<%= item.name %>
+<%= item.price %>
+<% end %>
+<!-- 後で部分テンプレート使えたら -->
