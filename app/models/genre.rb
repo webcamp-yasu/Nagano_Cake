@@ -1,5 +1,5 @@
 class Genre < ApplicationRecord
 	#belongs_to :items
 
-	validates :neme,  presence: true
+	validates :name,  presence: true
 end
