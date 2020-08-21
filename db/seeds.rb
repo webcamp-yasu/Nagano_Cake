@@ -29,10 +29,16 @@ end
 
 Genre.create!(
  name: 'ケーキ'
- name: 'プリン'
- name: '焼き菓子'
- name: 'キャンディ'
  )
+
+Genre.create!(
+  name: 'プリン')
+
+Genre.create!(
+  name: '焼き菓子')
+
+Genre.create!(
+  name: 'キャンディ')
 
 Customer.create!(
     last_name: 'テスト姓',
