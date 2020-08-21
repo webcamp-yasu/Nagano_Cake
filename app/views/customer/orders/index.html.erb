@@ -14,7 +14,7 @@
 		<% @orders .each do |order| %>
 		<tr>
 			<td><%= order.created_at %></td>
-			<td><%= order.postal_code %><%= order.address %><%= order.address_name %></td>
+			<td><%= order.postal_code %><br><%= order.address %><br><%= order.address_name %></td>
 			<td>
 				<%= order.order_details.each do |order_detail| %>
 				<%= order_detail.item.name %>
@@ -22,8 +22,8 @@
 			</td>
 			<td><%= order.total_price %></td>
 			<td><%= order.status %>
-			<td><%= link_to "こちらから", orders_path %></td>
+			<td><%= link_to "こちらから", order_path(order) %></td>
 		</tr>
 		<% end %>
 	</tbody>
-</table>
+</table>c
