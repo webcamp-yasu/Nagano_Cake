@@ -1,0 +1,7 @@
+<% items.each do |item| %>
+<div>
+  <%= attachment_image_tag(item,:image, :fill, 180,180) %>
+</div>
+<p><%= link_to item.name, item_path(item) %></p>
+<p>¥<%= item.price %></p>
+<% end %>

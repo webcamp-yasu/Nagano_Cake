@@ -1,28 +1,41 @@
-<h1>商品詳細</h1>
-	<table>
-		<thead>
-			<tr>
-				<th>商品名</th>
-				<th>商品説明</th>
-				<th>ジャンル</th>
-				<th>税込価格(税抜価格)</th>
-				<th>販売ステータス</th>
-			</tr>
-		</thead>
+<h2>商品詳細</h2>
+<div class="row">
+	<div>
+		<%= attachment_image_tag(@item,:image, :fill,300,200) %>
+	</div>
+	<table class="table">
 		<tbody>
 			<tr>
+				<td>商品名</td>
 				<td><%= @item.name %></td>
+			</tr>
+			<tr>
+				<td>商品説明</td>
 				<td><%= @item.detail %></td>
+			</tr>
+			<tr>
+				<td>ジャンル</td>
 				<td><%= @item.genre.name %></td>
-				<td><%= taxprice(@item.price) %>(<%= @item.price %>)</td>
+			</tr>
+			<tr>
+				<td>税込価格（税抜価格）</td>
+				<td>
+					<%= tax_price(@item.price)%>（<%= @item.price %>）円
+				</td>
+			</tr>
+			<tr>
+				<td>販売ステータス</td>
 				<td>
 					<% if @item.is_active == true %>
-						<h4>販売中</h4>
+					  <p>販売中</p>
 					<% else %>
-					    <h4>販売停止</h4>
-			        <% end %>
-			    </td>
+					  <p>販売停止</p>
+					<% end %>
+				</td>
 			</tr>
-			<div><%= link_to "編集する",edit_admin_item_path %></div>
 		</tbody>
 	</table>
+	<div class="actions">
+		<%= link_to "編集する", edit_admin_item_path(@item), class: "btn btn-primary" %>
+	</div>
+</div>

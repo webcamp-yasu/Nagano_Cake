@@ -8,8 +8,9 @@ module ApplicationHelper
     "#{customer.last_name_kana} #{customer.first_name_kana}"
   end
 
-	def taxprice(price)
+  #税込価格
+	def tax_price(price)
 		(price * 1.1).ceil
 	end
-  
+
 end
