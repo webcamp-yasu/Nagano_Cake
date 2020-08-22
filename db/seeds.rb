@@ -29,22 +29,18 @@ end
 
 Genre.create!(
  name: 'ケーキ'
- name: 'プリン'
- name: '焼き菓子'
- name: 'キャンディ'
- )
+  )
 
-Customer.create!(
-    last_name: 'テスト姓',
-    first_name: 'テスト名',
-    last_name_kana: 'テスト',
-    first_name_kana: 'ナマエ',
-    postal_code: '1111111',
-    address: '東京都新宿区',
-    phone_number: '11111111',
-    email: 'test@customer',
-    is_deleted: false,
-    password: '111111'
+Genre.create!(
+  name: 'プリン'
+  )
+
+Genre.create!(
+  name: '焼き菓子'
+  )
+
+Genre.create!(
+  name: 'キャンディ'
   )
 
 Order.create!([
