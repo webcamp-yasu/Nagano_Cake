@@ -10,8 +10,12 @@ class Customer::AddressesController < ApplicationController
 	#配送先新規登録アクション
 	def create
 		@address = Address.new(address_params)
-		@address.save
-		redirect_to addresses_path
+		if @address.save(address_params)
+			redirect_to addresses_path
+		else
+			@addresses = Address.all
+			render "index"
+		end
 	end
 
 	def show
