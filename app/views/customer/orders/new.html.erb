@@ -11,7 +11,7 @@
 		<%= f.label :address,"ご自身の住所"　%>
 		<p><%= current_customer.address %></p>
 
-		<%= f.radio_button :address %>
+		<%= f.radio_button :address,"address" %>
 		<%= f.label :address,"登録住所から選択", @customers.addreses.name %>
 
     <div>
