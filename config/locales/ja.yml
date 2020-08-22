@@ -7,6 +7,7 @@ ja:
         makingitem: "製作中"
         prepareshipment: "発送準備中"
         confitmedshipment: "発送済み"
+
     order_detail:
       production_status:
         new: "着手不可"
@@ -21,4 +22,13 @@ ja:
       next: '次'
       truncate: '...'
 
+
+  activerecord:
+    models:
+      address: 配送先
+    attributes:
+      address:
+        name: 宛名
+        postal_code: 郵便番号
+        address: 住所
 
