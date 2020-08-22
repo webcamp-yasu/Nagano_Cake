@@ -11,8 +11,8 @@
 	<div class="field">
 		<%= form_for(@cart_item, url: cart_items_path) do |f| %>
 		<%= f.hidden_field :item_id, value: @item.id %>
-		<%= f.select :amount, options_for_select(1..10) %>
-		<%= f.submit "カート内に入れる"%>
+		<%= f.select :amount, options_for_select(1..10), {include_blank: "個数選択"} %>
+		<%= f.submit "カート内に入れる", class: "btn btn-primary" %>
 		<% end %>
 	</div>
 
