@@ -9,7 +9,7 @@
 	<h2>お届け先</h2>
 		<%= f.radio_button :address,"customer_address" %>
 		<%= f.label :address,"ご自身の住所" %>
-		<p><%= current_customer.address %></p>
+		<%= current_customer.address %>
 
 		<%= f.radio_button :address,"address" %>
 		<%= f.label :address,"登録住所から選択"%>
