@@ -1,5 +1,5 @@
 <div class="col-xs-2">
-  <%= render 'layouts/genre_search', genres: @genres %>
+	<%= render 'layouts/genre_search', genres: @genres %>
 </div>
 <div class="col-xs-10">
 	<div>
@@ -13,28 +13,21 @@
 	<div class="clearfix">
 		<h2>オススメ商品</h2>
 		<div>
-			<div class="pull-left" >
-				<span>画像</span>
-				<p>商品名</p>
-				<p>値段</p>
+			<% @random.each do |items| %>
+			<div class="col-xs-2">
+				<div>
+					<%= attachment_image_tag(items,:image, :fill, 100,100) %>
+				</div>
+				<div>
+					<%= link_to items.name, item_path(items.id) %>
+				</div>
+
+				<div>
+					<%= items.price %>
+				</div>
 			</div>
-			<div class="pull-left" >
-				<span>画像</span>
-				<p>商品名</p>
-				<p>値段</p>
-			</div>
-			<div class="pull-left" >
-				<span>画像</span>
-				<p>商品名</p>
-				<p>値段</p>
-			</div>
-			<div class="pull-left" >
-				<span>画像</span>
-				<p>商品名</p>
-				<p>値段</p>
-			</div>
+			<% end %>
 		</div>
+		<!-- 商品一覧ページへリンクします -->
+		<div><%= link_to "もっと見る", items_path %></div>
 	</div>
-	<!-- 商品一覧ページへリンクします -->
-	<div><%= link_to "もっと見る", items_path %></div>
-</div>
