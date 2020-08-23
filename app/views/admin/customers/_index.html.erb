@@ -2,7 +2,7 @@
   <thead>
     <tr>
       <th>会員ID</th>
-      <th>氏名</th>
+      <th><u>氏名</u></th>
       <th>メールアドレス</th>
       <th>ステータス</th>
     </tr>
@@ -11,7 +11,7 @@
     <% customers.each do |customer| %>
       <tr>
         <td><%= customer.id %></td>
-        <td><%= link_to full_name(customer), admin_customer_path(customer), class: "btn-link" %></td>
+        <td><u><%= link_to full_name(customer), admin_customer_path(customer), class: "btn-link" %></u></td>
         <td><%= customer.email %></td>
         <td>
           <% if customer.is_deleted == true %>
