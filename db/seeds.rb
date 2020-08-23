@@ -26,7 +26,6 @@ Admin.create!(
   )
 end
 
-
 Genre.create!(
  name: 'ケーキ'
   )
@@ -42,6 +41,51 @@ Genre.create!(
 Genre.create!(
   name: 'キャンディ'
   )
+
+Item.create!(
+  name: "チョコレートケーキ",
+  detail: "チョコレートケーキチョコレートケーキ",
+  price: 600,
+  genre_id: 1,
+  is_active: true,
+  image: open("./app/assets/images/cake1.jpg")
+)
+
+Item.create!(
+  name: "フルーツケーキ",
+  detail: "フルーツケーキフルーツケーキ",
+  price: 1600,
+  genre_id: 1,
+  is_active: true,
+  image: open("./app/assets/images/cake2.jpg")
+)
+
+Item.create!(
+  name: "ペロペロキャンディ",
+  detail: "ペロペロキャンディペロペロキャンディ",
+  price: 300,
+  genre_id: 4,
+  is_active: true,
+  image: open("./app/assets/images/candy1.jpg")
+)
+
+Item.create!(
+  name: "チョコレートクッキー",
+  detail: "チョコレートクッキーチョコレートクッキー",
+  price: 250,
+  genre_id: 3,
+  is_active: true,
+  image: open("./app/assets/images/cookie1.jpg")
+)
+
+Item.create!(
+  name: "カラメルプリン",
+  detail: "カラメルプリンカラメルプリン",
+  price: 450,
+  genre_id: 2,
+  is_active: true,
+  image: open("./app/assets/images/pudding1.jpg")
+)
 
 Order.create!([
   {
