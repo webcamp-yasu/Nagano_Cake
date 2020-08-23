@@ -1,22 +1,21 @@
-
 <div class="row">
-	<div class="col-xs-2">
-		<h3>ジャンル検索</h3>
+	<div>
+		<%= attachment_image_tag(@item,:image, :fill,300, 200) %>
+	</div>
+	<div>
+		<h2><%= @item.name %></h2>
+		<p><%= @item.detail %></p>
+		<p>¥ <%= tax_price(@item.price) %><span>(税込)</span></p>
+	</div>
 
-	<% @genres.each do |genre| %>
-	<%= genre.name %>
-	<% end %>
+	<div class="field">
+		<%= form_for(@cart_item, url: cart_items_path) do |f| %>
+		<%= f.hidden_field :item_id, value: @item.id %>
+		<%= f.select :amount, options_for_select(1..10), prompt: "個数選択" %>
+		<%= f.submit "カート内に入れる", class: "btn btn-primary" %>
+		<% end %>
+	</div>
 
-	</div>
-	<div class="col-xs-6">
-		<%= attachment_image_tag(@item,:image, :fill,300,200) %>
-	</div>
-	<div class="col-xs-4">
-		<div><%= @item.name %></div>
-		<div><%= @item.detail %></div>
-		<div><%= taxprice(@item.price) %><p>(税込)</p></div>
-	</div>
 </div>
-
 
 <!-- render ジャンル検索が入ってくる -->
