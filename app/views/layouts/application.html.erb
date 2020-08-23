@@ -12,62 +12,9 @@
     <script type="text/javascript" src="//jpostal-1006.appspot.com/jquery.jpostal.js"></script>
   </head>
 <body>
-  <header class="navbar navbar-fixed-top　navbar-light">
-    <div class="container">
-      <nav class="nav navbar-nav navbar-left">
-        <h1>Nagano Cake</h1>
-      </nav>
-      <nav>
-        <ul class="nav navbar-nav navbar-right">
-          <% if customer_signed_in? %>
-          <li>ようこそ、<%= full_name(current_customer) %>さん！</li>
-          <li ><%= link_to "マイページ", mypage_customers_path %></li>
-          <li><%= link_to "商品一覧", items_path %></li>
-          <li><%= link_to "カート", cart_items_path %></li>
-          <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
-          <% elsif admin_signed_in? %>
-          <li><%= link_to "商品一覧", admin_items_path %></li>
-          <li><%= link_to "会員一覧", admin_customers_path %></li>
-          <li><%= link_to "注文履歴一覧", admin_orders_path %></li>
-          <li><%= link_to "ジャンル一覧", admin_genres_path %></li>
-          <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
-        <% else %>
-          <!-- 管理者ログイン機能（ワイヤーフレームにはない） -->
-          <li><%= link_to "管理者ログイン", new_admin_session_path %></li>
-          <li><%= link_to "About", about_path %></li>
-          <li><%= link_to "商品一覧", items_path %></li>
-          <li><%= link_to "新規登録", new_customer_registration_path %></li>
-          <li><%= link_to "ログイン", new_customer_session_path %></li>
-        <% end %>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  <!-- 管理者検索機能 -->
-  <div class="container">
-    <% if admin_signed_in? %>
-    <div class="search-form" style="text-align: right;">
-      <strong>会員（メールアドレスのみ対応）/ 商品検索（商品名のみ対応）</strong>
-      <%= form_tag(admin_search_path, method: :get) do %>
-      <%= text_field_tag 'search[content]' %>
-      <%= select_tag 'search[model]', options_for_select({"会員" => 'customer', "商品" => "item"}) %>
-      <%= select_tag 'search[method]', options_for_select({"完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial"}) %>
-      <%= submit_tag '検索' %>
-      <% end %>
-    </div>
-    <% end %>
-    <!-- 会員検索機能 -->
-    <% if customer_signed_in? %>
-    <div class="search-form" style="text-align: right;">
-      <strong>商品検索（商品名で検索してください）</strong>
-      <%= form_tag(search_path, method: :get) do %>
-      <%= text_field_tag 'search[content]' %>
-      <%= select_tag 'search[method]', options_for_select({"完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial"}) %>
-      <%= submit_tag '検索', class: "btn btn-primary" %>
-      <% end %>
-    </div>
-    <% end %>
-  </div>
+  <%= render 'layouts/header' %>
+
+  <%= render 'layouts/search' %>
   <!-- レイアウト見にくいのでとりあえず下記追加 -->
   <div class="container">
     <p id="notice"><%= notice %></p>
