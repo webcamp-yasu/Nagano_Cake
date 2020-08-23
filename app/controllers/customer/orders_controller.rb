@@ -15,6 +15,7 @@ class Customer::OrdersController < ApplicationController
 
     def confirm
     	@order = Order.find(params[:id])
+    	@carts = Cart_item.where(customer:current_customer)
     end
 
 	def thanks
