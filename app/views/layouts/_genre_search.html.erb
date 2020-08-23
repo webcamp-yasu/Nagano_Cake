@@ -1,0 +1,10 @@
+<h3>ジャンル検索</h3>
+<% genres.each do |genre| %>
+<%= form_tag(search_path, method: :get) do %>
+　<% %>
+<%= hidden_field_tag 'search[model]', 'genre' %>
+<%= hidden_field_tag 'search[content]', genre.name %>
+<%= hidden_field_tag 'search[method]', '' %>
+<p><%= submit_tag genre.name, class: "btn-link" %></p>
+<% end %>
+<% end %>
