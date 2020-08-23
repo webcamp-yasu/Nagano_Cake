@@ -1,2 +1,14 @@
-<h2>「<%= @content %>」  と一致した商品</h2>
-<%= render 'customer/items/index', items: @records %>
+<div class="col-xs-2">
+  <%= render 'layouts/genre_search', genres: @genres %>
+</div>
+<% if @model == 'item' %>
+  <h2>「<%= @content %>」  と一致した商品</h2>
+  <div class="col-xs-10">
+    <%= render 'customer/items/index', items: @records %>
+  </div>
+<% else @model == 'genre' %>
+  <h2>「<%= @content %>」  と一致した商品</h2>
+  <div class="col-xs-10">
+    <%= render 'customer/items/index', items: @records %>
+  </div>
+<% end %>

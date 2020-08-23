@@ -9,9 +9,19 @@
 				<th>ステータス</th>
 			</tr>
 		</thead>
+
 		<tbody>
 			<tr>
-				<td></td>
+				<td><%= @order.create_at %></td>
+                <td><%= @order.postal_code %><br>
+                    <%= @order.address %></td>
+                <td><% if @order.payment_method == true %>
+                        <h4>銀行振込</h4>
+                    <% else %>
+                        <h4>クレジットカード</h4>
+                    <% end %>
+                </td>
+                <td><%= @order.status %></td>
 			</tr>
 		</tbody>
 	</table>
@@ -27,7 +37,9 @@
     	</thead>
     	<tbody>
     		<tr>
-    			<td></td>
+    			<td><%= @item.total_payment %></td>
+                <td><%= @item.shipping_cost %></td>
+                <td><%= </td>
     		</tr>
     	</tbody>
     </table>
@@ -44,7 +56,10 @@
     	</thead>
     	<tbody>
     		<tr>
-    			<td>data</td>
+    			<td></td>
+                <td></td>
+                <td></td>
+                <td></td>
     		</tr>
     	</tbody>
     </table>

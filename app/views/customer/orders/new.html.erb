@@ -1,7 +1,0 @@
-<h1>注文情報入力</h1>
-	<%= form_for @order %>
-	 <h3>支払い方法</h3>
-	 <%= f.radio_button :is_active, :true %>
-	<%= f.label :is_active, "クレジットカード", {value: :true, style: "display: inline-block;"} %>
-	<%= f.radio_button :is_active, :false %>
-	<%= f.label :is_active, "銀行振込", {value: :false, style: "display: inline-block;"} %>
