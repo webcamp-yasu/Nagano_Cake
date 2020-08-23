@@ -5,7 +5,7 @@
 			<td>購入者</td>
 			<td>
 				<%= link_to admin_customers_path(@customer) do %>
-							<%= @customer.last_name %><%= @customer.first_name %>
+							full_name(@customer)
 				<% end %>
 			</td>
 		</tr>
@@ -44,7 +44,7 @@
 				<td><%= order_detail.item.name %></td>
 				<td><%= (order_detail.item.price).to_i %></td>
 				<td><%= order_detail.amount %></td>
-				<td><%= (order_detail.total_item_price).to_i %></td>
+				<td><%= (order_detail.sub_total).to_i %></td>
 				<td><%= form_with model: order_detail do |f| %>
 	                    	<%= f.select :production_status, Order_detail.production_statuses_i18n.keys.map { |k| [Order_detail.production_statuses_i18n[k], k]} %>
 	                    	<%= f.submit '更新' %>
@@ -60,15 +60,15 @@
 		<tbody>
 			<tr>
 				<td>商品合計</td>
-				<td><%= (@order.total_price).to_i %>円</td>
+				<td><%= (@order.billing_amount - @order.postage).to_i %>円</td>
 			</tr>
 			<tr>
 				<td>送料</td>
-				<td><%= @order.postage %>円</td>
+				<td><%= (@order.postage).to_i %>円</td>
 			</tr>
 			<tr>
 				<td>請求金額合計</td>
-				<td><%= @order.billing_amount %>円</td>
+				<td><%= (@order.billing_amount).to_i %>円</td>
 			</tr>
 		</tbody>
 	</table>

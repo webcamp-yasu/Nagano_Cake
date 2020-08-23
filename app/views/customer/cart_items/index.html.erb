@@ -1,6 +1,8 @@
 <div class="clearfix">
 	<h1 class="pull-left">ショッピングカート</h1>
-	<%= link_to "カートを空にする", cart_items_path, method: :delete, data: { confirm: '本当に消しますか？' }, class:"btn btn-danger pull-right" %>
+	<% if @cart_items.present? %>
+		<%= link_to "カートを空にする", cart_items_path, method: :delete, data: { confirm: '本当に消しますか？' }, class:"btn btn-danger pull-right" %>
+	<% end %>
 </div>
 <table class="table">
 	<thead>
@@ -13,7 +15,6 @@
 		</tr>
 	</thead>
 	<tbody>
-		<% @sum = 0 %>
 		<% @cart_items.each do |cart_item| %>
 			<tr>
 				<td>
@@ -24,16 +25,15 @@
 				</td>
 				<td><%= cart_item.item.price %></td>
 				<td>
-					<%= cart_item.item.amount %>
-					<% form_for cart_item do |f| %>
-					  <%= f.select :amount, [*1..100], class:"form-control" %>
-					  <%= f.submit "変更"%>
+					<%= form_for cart_item, url:cart_item_path(cart_item.id) do |f| %>
+					  <%= f.select :amount, [*1..20], class:"form-control input-lg" %>
+					  <%= f.submit "変更", class:"btn btn-primary"%>
 					<% end %>
 				</td>
 				<td><%= (cart_item.subtotal).to_i %>円</td>
-				<td><%= link_to "削除する", cart_item_path(@cart_item), method: :delete, class:"btn btn-danger pull-right" %></td>
+				<td><%= link_to "削除する", cart_item_path(cart_item), method: :delete, class:"btn btn-danger pull-right" %></td>
 			</tr>
-		<% @sum += cart_item.subtotal %>
+		<% cart_item.subtotal %>
 		<% end %>
 	</tbody>
 </table>
