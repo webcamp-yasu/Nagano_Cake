@@ -32,13 +32,14 @@
 				</tr>
 				<tr>
 					<td>商品合計</td>
-					<td><%= @carts</td>
+					<td><%= cart.total_price(item.price)</td>
 				</tr>
 			</tbody>
 		</table>
+	</div>
 
-		<p>支払い方法</p>
-		<%= confirm.payment_method %>
+		支払い方法
+		 confirm.payment_method %>
 
 		<p>お届け先</p>
 		<%= confirm.address %>
