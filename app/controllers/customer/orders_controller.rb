@@ -14,6 +14,7 @@ class Customer::OrdersController < ApplicationController
 	end
 
     def confirm
+    	@order = Order.find(params[:id])
     end
 
 	def thanks
