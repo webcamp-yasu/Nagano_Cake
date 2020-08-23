@@ -12,7 +12,7 @@ class Admin::OrdersController < ApplicationController
 	def update
 		@order = Order.find(params[:id])
 		@order.update(order_params)
-		flash[:success] = "注文ステータスを更新しました"
+		flash[:notice] = "注文ステータスを更新しました"
 		redirect_to admin_orders_path(order)
 	end
 
