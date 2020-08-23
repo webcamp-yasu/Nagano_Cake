@@ -1,0 +1,7 @@
+<% if @model == 'customer' %>
+  <h2>「<%= @content %>」  と一致した会員</h2>
+  <%= render 'admin/customers/index', customers: @records %>
+<% else @model == 'item' %>
+  <h2>「<%= @content %>」  と一致した商品</h2>
+  <%= render 'admin/items/index', items: @records %>
+<% end %>

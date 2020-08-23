@@ -1,15 +1,5 @@
-<h1>商品一覧(全<%= Item.count %>件)</h1>
+<h2>商品一覧(全<%= Item.count %>件)</h2>
 
-	<% @items.each do |item| %>
-	<%= attachment_image_tag(item,:image, :fill,100,100) %>
-	<%= item.name %>
-	<%= item.price %>
-	<% end %>
+<%= render 'index', items: @items %>
 
-<!-- <h1><%= Genre.name %>一覧(全<%= Genre.count %>件)</h1> -->
-
-<h3>ジャンル検索</h3>
-
-	<% @genres.each do |genre| %>
-	<%= genre.name %>
-	<% end %>
+<!-- ジャンル検索後で追加 -->

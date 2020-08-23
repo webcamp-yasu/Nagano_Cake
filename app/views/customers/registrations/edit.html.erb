@@ -8,18 +8,19 @@
   <% end %>
 
   <div class="field form-group">
-    <%= f.label :"新しいパスワード" %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.label :"新しいパスワード" %>
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: "新しいパスワード" %>
   </div>
 
   <div class="field form-group">
-    <%= f.label :"新しいパスワードの確認" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.label :"新しいパスワードの確認" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "新しいパスワードの確認" %>
   </div>
 
   <div class="field form-group">
-    <%= f.label :"既存のパスワード" %> <i>（変更するには既存のパスワードが必要です）</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+    <%= f.label :"既存のパスワード" %>
+    <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "既存のパスワード" %>
+    <br><i>（変更するには既存のパスワードが必要です）</i>
   </div>
 
   <div class="actions">

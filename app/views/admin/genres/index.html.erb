@@ -43,7 +43,11 @@
 					</td>
 
 					<td scope="row">
-						<%= genre.is_active %>
+						<% if genre.is_active == true %>
+						有効
+						<% else %>
+						無効
+						<% end %>
 					</td>
 
 					<td scope="row">

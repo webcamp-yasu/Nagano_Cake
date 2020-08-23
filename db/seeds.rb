@@ -43,19 +43,6 @@ Genre.create!(
  name: 'キャンディ'
  )
 
-Customer.create!(
-    last_name: 'テスト姓',
-    first_name: 'テスト名',
-    last_name_kana: 'テスト',
-    first_name_kana: 'ナマエ',
-    postal_code: '1111111',
-    address: '東京都新宿区',
-    phone_number: '11111111',
-    email: 'test@customer',
-    is_deleted: false,
-    password: '111111'
-  )
-
 Order.create!([
   {
   id: 1,
