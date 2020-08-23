@@ -7,11 +7,11 @@
 		<%= f.label :payment_method, "銀行振込", {value: :false, style: "display: inline-block;"} %>
 
 	<h2>お届け先</h2>
-		<%= f.radio_button :address,"customer_address" %>
-		<%= f.label :address,"ご自身の住所" %>
+		<%= f.radio_button :shipping_address,"customer_address" %>
+		<%= f.label :shipping_address,"ご自身の住所" %>
 		<%= current_customer.address %>
 
-		<%= f.radio_button :address,"address" %>
+		<%= f.radio_button :shipping_address,"address" %>
 		<%= f.label :address,"登録住所から選択"%>
 		<%= f.collection_select :address, @addresses, :id, :address_name %>
 
