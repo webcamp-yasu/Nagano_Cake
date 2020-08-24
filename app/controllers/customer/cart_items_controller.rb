@@ -1,38 +1,49 @@
 class Customer::CartItemsController < ApplicationController
 	#カート内商品一覧ページ
 	def index
-		@cart_items = CartItem.all
+		@cart_items = current_customer.cart_items
 	end
 	#カート内商品追加アクション
   def create
-  	@cart_item = current_customer.cart_items.new(cart_item_params)
-  	@cart_item.save
-  	flash[:notice] = "商品をカートに追加しました"
-    redirect_to items_path
+  		@cart_item = current_customer.cart_items.new(cart_item_params)
+  		@check_item = CartItem.find_by(item_id: @cart_item.item.id)
+        if @check_item.present?
+  			@cart_item.amount += @check_item.amount
+  			@check_item.destroy
+  		end
+			@cart_item.save
+            flash[:notice] = "商品をカートに追加しました"
+            redirect_to cart_items_path
   end
-	#def create
-	#    if @cart_item.blank?
-	#      @cart_item = current_customer.cart_items.new(item_id: params[:item_id])
-	#    end
-	#    @cart_item.amount += params[:amount].to_i
-	#    @cart_item.save
-	#    redirect_to cart_items_path
-	#end
+
 	#カート内商品削除アクション
 	def destroy
-		 @cart_item.destroy
-		 redirect_to cart_items_path
-
+		@cart_item = CartItem.find(params[:id])
+		 if @cart_item.destroy
+		 	flash[:notice] = "カートの商品を削除しました"
+		 	redirect_to cart_items_path
+		else
+			render action: :index
+		end
 	end
 	#カート内を全て空にするアクション
 	def destroy_all
-		CartItem.destroy_all
-  		redirect_to cart_items_path
+		@cart_items = CartItem.where(customer_id: current_customer.id)
+		if CartItem.destroy_all
+			flash[:notice] = "カートの商品を全て削除しました"
+  			redirect_to cart_items_path
+		else
+			render action: :index
+		end
 	end
 	#カート内商品更新アクション
 	def update
-		@cart_item.update(amount: params[:amount].to_i)
-		redirect_to cart_items_path
+		@cart_item = CartItem.find(params[:id])
+		if @cart_item.update(cart_item_params)
+			redirect_to cart_items_path
+		else
+			render action: :index
+		end
 	end
 
 	private
