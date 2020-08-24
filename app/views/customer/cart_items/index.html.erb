@@ -1,3 +1,5 @@
+<% provide(:title, "カート") %>
+
 <div class="clearfix">
 	<h1 class="pull-left">ショッピングカート</h1>
 	<% if @cart_items.present? %>
@@ -26,11 +28,11 @@
 				<td><%= tax_price(cart_item.item.price) %>円</td>
 				<td>
 					<%= form_for cart_item, url:cart_item_path(cart_item.id) do |f| %>
-					  <%= f.select :amount, [*1..20], class:"form-control input-lg" %>
+					  <%= f.number_field :amount, size: 10, min: 1 %>
 					  <%= f.submit "変更", class:"btn btn-primary"%>
 					<% end %>
 				</td>
-				<td><%= sub_total(cart_item).to_i %>円</td>
+				<td><%= sub_total(cart_item) %>円</td>
 				<td><%= link_to "削除する", cart_item_path(cart_item), method: :delete, class:"btn btn-danger pull-right" %></td>
 			</tr>
 		<% end %>

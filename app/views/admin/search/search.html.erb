@@ -1,3 +1,5 @@
+<% provide(:title, "検索結果") %>
+
 <% if @model == 'customer' %>
   <h2>「<%= @content %>」  と一致した会員</h2>
   <%= render 'admin/customers/index', customers: @records %>
