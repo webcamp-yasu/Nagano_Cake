@@ -8,7 +8,7 @@ class Customer::OrdersController < ApplicationController
 
 	def show
 		@order = Order.find(params[:id])
-    @order_detalils = @order.order_details
+    @order_details = @order.order_details
 	end
 
   def new
