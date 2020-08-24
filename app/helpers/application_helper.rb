@@ -13,7 +13,7 @@ module ApplicationHelper
   end
 
   def sub_total(sub)#小計
-  	((tax_price(sub.item.price)) * sub.amount)
+  	tax_price(sub.item.price) * sub.amount
   end
 
   def total_price(totals)#合計金額
