@@ -4,16 +4,18 @@ class Customer::AddressesController < ApplicationController
 	#配送先一覧ページ・登録ページ
 	def index
 		@address = Address.new
-		@addresses = Address.all
+		@addresses = current_customer.address
 	end
 
 	#配送先新規登録アクション
 	def create
 		@address = Address.new(address_params)
+		@address.customer_id = current_customer.id
+		@addresses = current_customer.address
 		if @address.save(address_params)
 			redirect_to addresses_path
 		else
-			@addresses = Address.all
+			@addresses = current_customer.address
 			render "index"
 		end
 	end
