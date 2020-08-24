@@ -19,13 +19,20 @@
  /* バックグラウンドとフォントタイプ */
 
  body {
-   font-family: "Montserrat","游ゴシック",YuGothic,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo,sans-serif;
-   background-image: image-url('background.jpg');
+   font-family: "Montserrat","筑紫B丸ゴシック","游ゴシック",YuGothic,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo,sans-serif;
+   color: #696363;
+   background-color:#FDFCF5;
+
    background-size: cover;
    background-positon: center;
    background-color: rgba(255, 255, 255, 0.9);
    background-blend-mode: lighten;
+   padding-bottom: 70px;
  }
+
+header {
+   background-color:#FDFCF5;
+}
 
  /* フラッシュメッセージ */
 
