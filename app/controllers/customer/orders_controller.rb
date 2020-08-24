@@ -1,4 +1,5 @@
 class Customer::OrdersController < ApplicationController
+  include ApplicationHelper
 
   def index
     #ログインしている会員のみの注文履歴
@@ -7,7 +8,7 @@ class Customer::OrdersController < ApplicationController
 
 	def show
 		@order = Order.find(params[:id])
-    @order_detalils = @order.order_details
+    @order_details = @order.order_details
 	end
 
   def new
@@ -47,7 +48,7 @@ class Customer::OrdersController < ApplicationController
   end
 
   def create
-    @order = current_user.orders.new(order_params)
+    @order = current_customer.orders.new(order_params)
     @order.save
     redirect_to thanks_orders_path
 

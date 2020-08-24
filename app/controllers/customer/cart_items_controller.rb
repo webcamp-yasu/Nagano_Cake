@@ -1,17 +1,18 @@
 class Customer::CartItemsController < ApplicationController
+	before_action :authenticate_customer!
 	#カート内商品一覧ページ
 	def index
 		@cart_items = current_customer.cart_items
 	end
 	#カート内商品追加アクション
   def create
-  		@cart_item = current_customer.cart_items.new(cart_item_params)
-  		@check_item = CartItem.find_by(item_id: @cart_item.item.id)
+      @cart_item = current_customer.cart_items.new(cart_item_params)
+      @check_item = CartItem.find_by(item_id: @cart_item.item.id, customer_id: current_customer.id)
         if @check_item.present?
-  			@cart_item.amount += @check_item.amount
-  			@check_item.destroy
-  		end
-			@cart_item.save
+        @cart_item.amount += @check_item.amount
+        @check_item.destroy
+      end
+      @cart_item.save
             flash[:notice] = "商品をカートに追加しました"
             redirect_to cart_items_path
   end
