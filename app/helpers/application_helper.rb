@@ -16,7 +16,7 @@ module ApplicationHelper
   	((tax_price(sub.item.price)) * sub.amount)
   end
 
-  def total_price(totals)#支払い金額
+  def total_price(totals)#合計金額
   	price = 0
   	totals.each do |total|
   		price += sub_total(total)

@@ -1,4 +1,5 @@
 class Customer::OrdersController < ApplicationController
+  include ApplicationHelper
 
   def index
     #ログインしている会員のみの注文履歴
@@ -43,12 +44,11 @@ class Customer::OrdersController < ApplicationController
       @order.postal_code  = params[:order][:postal_code]
       @order.address      = params[:order][:address]
       @order.address_name = params[:order][:address_name]
-
     end
   end
 
   def create
-    @order = current_user.orders.new(order_params)
+    @order = current_customer.orders.new(order_params)
     @order.save
     redirect_to thanks_orders_path
 
