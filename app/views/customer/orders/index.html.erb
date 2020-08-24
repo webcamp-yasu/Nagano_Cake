@@ -20,7 +20,7 @@
 				<%= order_detail.item.name %>
                 <% end %>
 			</td>
-			<td><%= order.total_price %></td>
+			<td><%= order.billing_amount %></td>
 			<td><%= order.status %>
 			<td><%= link_to "こちらから", order_path(order) %></td>
 		</tr>
