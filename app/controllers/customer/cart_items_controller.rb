@@ -9,6 +9,7 @@ class Customer::CartItemsController < ApplicationController
       @cart_item = current_customer.cart_items.new(cart_item_params)
       @check_item = CartItem.find_by(item_id: @cart_item.item.id, customer_id: current_customer.id)
         if @check_item.present?
+        	# byebug
         @cart_item.amount += @check_item.amount
         @check_item.destroy
       end
