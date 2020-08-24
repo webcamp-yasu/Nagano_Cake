@@ -1,45 +1,45 @@
 <h1>注文履歴詳細</h1>
     <h2>注文情報</h2>
-	<table>
-		<thead>
+	<tbody>
 			<tr>
-				<th>注文日</th>
-				<th>配送先</th>
-				<th>支払方法</th>
-				<th>ステータス</th>
+				<td>注文日</td>
+				<td><%= @order.created_at %></td>
 			</tr>
-		</thead>
 
-		<tbody>
-			<tr>
-				<td><%= @order.create_at %></td>
+            <tr>
+                <td>配送先</td>
                 <td><%= @order.postal_code %><br>
-                    <%= @order.address %></td>
-                <td><% if @order.payment_method == true %>
-                        <h4>銀行振込</h4>
-                    <% else %>
-                        <h4>クレジットカード</h4>
-                    <% end %>
-                </td>
-                <td><%= @order.status %></td>
-			</tr>
-		</tbody>
-	</table>
+                    <%= @order.address %></td></td>
+            </tr>
+
+            <tr>
+                <td>支払方法</td>
+                <td><% @order.payment_method_i18n %>
+            </tr>
+
+            <tr>
+                <td>ステータス</td>
+                <td><%= @order.status_i18n %></td>
+            </tr>
+
+    </tbody>
 
 　　<h2>請求情報</h2>
-    <table>
-    	<thead>
+    <tbody>
     		<tr>
-    			<th>商品合計</th>
-    			<th>配送料</th>
-    			<th>ご請求金額</th>
+    			<td>商品合計</td>
+                <td><%= @order.billing_amount - @order.postage %></td>
     		</tr>
+
+            <tr>
+                <td>配送料</td>
+                <td><%= @order.postage %>
+            </tr>
     	</thead>
     	<tbody>
     		<tr>
-    			<td><%= @item.total_payment %></td>
-                <td><%= @item.shipping_cost %></td>
-                <td><%= </td>
+    			<td>ご請求額</td>
+                <td><%= @order.billing_amount %></td>
     		</tr>
     	</tbody>
     </table>
@@ -55,11 +55,13 @@
     		</tr>
     	</thead>
     	<tbody>
+            <% @order_details.each do |order_detail| %>
     		<tr>
-    			<td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+    			<td><%= order_detail.item.name %></td>
+                <td><%= tax_price(order_detail.item.price) %></td>
+                <td><%= order_detail.amount %></td>
+                <td><%= sub_total(order_detail) %></td>
     		</tr>
+            <% end %>
     	</tbody>
     </table>
