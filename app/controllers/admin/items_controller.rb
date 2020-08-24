@@ -3,7 +3,7 @@ class Admin::ItemsController < ApplicationController
 
 	# 商品一覧ページ
 	def index
-		@items = Item.all
+		@items = Item.page(params[:page]).per(10)
 	end
 
 	# 商品新規登録ページ

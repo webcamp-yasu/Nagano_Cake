@@ -4,7 +4,7 @@
 <%= render "customers/shared/error_messages", resource: resource %>
 
 <div class="field form-group">
-  <%= f.label :"名前" %>
+  <%= f.label :"名前", class: "col-xs-3" %>
   <%= f.label :"（姓）" %>
   <%= f.text_field :last_name, autofocus: true, placeholder: "（姓）" %>
   <%= f.label :"（名）" %>
@@ -12,7 +12,7 @@
 </div>
 
 <div class="field form-group">
-  <%= f.label :"フリガナ" %>
+  <%= f.label :"フリガナ", class: "col-xs-3" %>
   <%= f.label :"（セイ）" %>
   <%= f.text_field :last_name_kana, autofocus: true, placeholder: "（セイ）" %>
   <%= f.label :"（メイ）" %>
@@ -21,32 +21,32 @@
 
 
 <div class="field form-group">
-  <%= f.label :"メールアドレス" %>
+  <%= f.label :"メールアドレス", class: "col-xs-3" %>
   <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" %>
 </div>
 
 <div class="field form-group">
-  <%= f.label :"郵便番号（ハイフンなし）" %>
+  <%= f.label :"郵便番号（ハイフンなし）", class: "col-xs-3" %>
   <%= f.text_field :postal_code, autofocus: true, placeholder: "郵便番号" %>
 </div>
 
 <div class="field form-group">
-  <%= f.label :"住所" %>
+  <%= f.label :"住所", class: "col-xs-3" %>
   <%= f.text_field :address, autofocus: true, :size => "70", placeholder: "住所" %>
 </div>
 
 <div class="field form-group">
-  <%= f.label :"電話番号（ハイフンなし）" %>
+  <%= f.label :"電話番号（ハイフンなし）", class: "col-xs-3" %>
   <%= f.text_field :phone_number, autofocus: true, placeholder: "電話番号" %>
 </div>
 
 <div class="field form-group">
-  <%= f.label :"パスワード（6文字以上）" %>
+  <%= f.label :"パスワード（6文字以上）", class: "col-xs-3" %>
   <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード" %>
 </div>
 
 <div class="field form-group">
-  <%= f.label :"パスワード（確認用）" %>
+  <%= f.label :"パスワード（確認用）", class: "col-xs-3" %>
   <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード確認" %>
 </div>
 
