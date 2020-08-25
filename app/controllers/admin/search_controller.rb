@@ -32,4 +32,5 @@ class Admin::SearchController < ApplicationController
       end
     end
   end
+
 end

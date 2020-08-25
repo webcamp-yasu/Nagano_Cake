@@ -1,6 +1,7 @@
 class Customer < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -16,4 +17,5 @@ class Customer < ApplicationRecord
   validates :last_name_kana, :first_name_kana,
              format: {with: /\A[\p{katakana}\p{blank}ー－]+\z/,
                       message: "カタカナで入力して下さい。"}
+
 end
