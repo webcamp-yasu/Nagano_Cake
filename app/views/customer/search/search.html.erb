@@ -1,15 +1,15 @@
 <% provide(:title, "検索結果") %>
-<div class="col-xs-2">
+<div class="col-xs-12 col-sm-2">
   <%= render 'layouts/genre_search', genres: @genres %>
 </div>
 <% if @model == 'item' %>
   <h2>「<%= @content %>」  と一致した商品</h2>
-  <div class="col-xs-10">
+  <div class="col-xs-12 col-sm-10">
     <%= render 'customer/items/index', items: @records %>
   </div>
 <% else @model == 'genre' %>
   <h2><%= @content %>一覧</h2>
-  <div class="col-xs-10">
+  <div class="col-xs-12 col-sm-10">
     <%= render 'customer/items/index', items: @records %>
   </div>
 <% end %>

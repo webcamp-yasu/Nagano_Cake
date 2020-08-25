@@ -1,34 +1,34 @@
-<% provide(:title, "ホーム") %>
-<div class="col-xs-2">
-	<%= render 'layouts/genre_search', genres: @genres %>
-</div>
-<div class="col-xs-10">
-	<div>
-		<p>
-			ようこそ、NaganoCakeへ！<br>
-			このサイトは、ケーキ販売のECサイトになります。<br>
-			会員でない方も商品の閲覧はできますが、<br>
-			購入には会員登録が必要になります。
-		</p>
-	</div>
-	<div class="clearfix">
-		<h2>オススメ商品</h2>
-		<div>
-			<% @random.each do |items| %>
-			<div class="col-xs-2">
-				<div>
-					<%= attachment_image_tag(items,:image, :fill, 100,100) %>
-				</div>
-				<div>
-					<%= link_to items.name, item_path(items.id) %>
-				</div>
 
-				<div>
-					<%= items.price %>
-				</div>
-			</div>
-			<% end %>
+<div class="row">
+	<% provide(:title, "ホーム") %>
+	<div class="top-image">
+		<div class="top-text">
+			<p>
+				ようこそ、<br>
+				長野の小さな洋菓子店<br>
+			</p>
+			<p class="top-shopname">Nagano Cake へ！</p>
 		</div>
-		<!-- 商品一覧ページへリンクします -->
-		<div><%= link_to "もっと見る", items_path %></div>
 	</div>
+	<div class="col-xs-3">
+		<%= render 'layouts/genre_search', genres: @genres %>
+	</div>
+	<div class="col-xs-9">
+		<h2>オススメ商品</h2>
+			<% @random.each do |items| %>
+				<div class="col-xs-3">
+					<div>
+						<%= attachment_image_tag(items,:image, :fill, 100,100) %>
+					</div>
+					<div>
+						<%= link_to items.name, item_path(items.id) %>
+					</div>
+					<div>
+						<%= items.price %>円
+					</div>
+				</div>
+			<% end %>
+			<!-- 商品一覧ページへリンクします -->
+			<div class="text-right"><%= link_to "もっと見る", items_path %></div>
+	</div>
+</div>

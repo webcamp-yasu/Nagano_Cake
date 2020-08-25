@@ -5,6 +5,7 @@
     <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -16,13 +17,16 @@
 
   <%= render 'layouts/search' %>
   <!-- レイアウト見にくいのでとりあえず下記追加 -->
-  <div class="container">
-    <p id="notice"><%= notice %></p>
-    <%= yield %>
-  </div>
+<div class="container main">
+
+      <p id="notice"><%= notice %></p>
+      <%= yield %>
+</div>
+
   <footer class="fixed-bottom">
     <div class="container">
-      <p class="pull-right">© All rights reserved by YASU Company</p>
+      <p class="btn btn-default admin-login pull-right"><%= link_to "管理者ログインはこちら", new_admin_session_path %></p>
+      <p class="pull-left copyright">© All rights reserved by YASU Company</p>
     </div>
   </footer>
 </body>

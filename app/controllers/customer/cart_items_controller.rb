@@ -1,9 +1,11 @@
 class Customer::CartItemsController < ApplicationController
 	before_action :authenticate_customer!
+
 	#カート内商品一覧ページ
 	def index
 		@cart_items = current_customer.cart_items
 	end
+
 	#カート内商品追加アクション
   def create
       @cart_item = current_customer.cart_items.new(cart_item_params)
@@ -28,6 +30,7 @@ class Customer::CartItemsController < ApplicationController
 			render action: :index
 		end
 	end
+
 	#カート内を全て空にするアクション
 	def destroy_all
 		@cart_items = CartItem.where(customer_id: current_customer.id)
@@ -38,6 +41,7 @@ class Customer::CartItemsController < ApplicationController
 			render action: :index
 		end
 	end
+
 	#カート内商品更新アクション
 	def update
 		@cart_item = CartItem.find(params[:id])

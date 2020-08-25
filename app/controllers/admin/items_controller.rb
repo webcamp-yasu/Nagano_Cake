@@ -16,7 +16,7 @@ class Admin::ItemsController < ApplicationController
 		@item = Item.new(item_params)
 		if @item.save
 			flash[:notice] = "新商品を登録しました"
-		  redirect_to admin_items_path
+			redirect_to admin_items_path
 		else
 			render "new"
 		end
@@ -37,14 +37,16 @@ class Admin::ItemsController < ApplicationController
 		@item = Item.find(params[:id])
 		if @item.update(item_params)
 			flash[:success] = "商品情報を編集しました"
-		    redirect_to admin_item_path(@item)
+			redirect_to admin_item_path(@item)
 		else
 			render "edit"
+		end
 	end
-    end
+
 	private
 
 	def item_params
 		params.require(:item).permit(:name,:image,:detail,:price,:is_active,:genre_id)
-  end
+	end
+
 end
