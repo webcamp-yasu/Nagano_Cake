@@ -18,8 +18,10 @@
 		<div class="form-group">
 			<%= form_for(@cart_item, url: cart_items_path) do |f| %>
 			<%= f.hidden_field :item_id, value: @item.id %>
-			<%= f.select :amount, options_for_select(1..10) %>
-			<%= f.submit "カート内に入れる", class: "btn btn-lg btn-primary" %>
+			<div class="col-xs-2 col-sm-2">
+				<%= f.select :amount, options_for_select(1..10), {}, {class: "form-control"} %>
+			</div>
+			<%= f.submit "カート内に入れる", class: "btn btn-primary" %>
 			<% end %>
 		</div>
 	</div>

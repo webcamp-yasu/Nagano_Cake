@@ -1,5 +1,6 @@
 class Admin::ItemsController < ApplicationController
-# 　　before_action :authenticate_user!
+
+  before_action :authenticate_admin!
 
 	# 商品一覧ページ
 	def index

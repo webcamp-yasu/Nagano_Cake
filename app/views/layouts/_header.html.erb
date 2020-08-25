@@ -8,11 +8,9 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-
         <a class="navbar-brand" href="/">
           <img alt="Logo" src="/assets/logo.png" class="logo">
         </a>
-
         <div class="shopname pull-left">
           <a href="/about">
             <p class="shopname1">長野の小さな洋菓子店</p>
@@ -29,13 +27,15 @@
                 ようこそ、<%= full_name(current_customer) %>さん！
                 <span class="caret"></span>
               </a>
+
               <ul class="dropdown-menu" role="menu">
                 <li class="btn center-block"><%= link_to "マイページ", mypage_customers_path %></li>
                 <li class="btn center-block"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
               </ul>
             </li>
+
             <li class="btn"><%= link_to "商品一覧", items_path %></li>
-            <li class="btn cart"><%= link_to "", cart_items_path,class:"glyphicon glyphicon-shopping-cart" %></li>
+            <li class="btn"><%= link_to "カート", cart_items_path %></li>
             <% elsif admin_signed_in? %>
             <li class="btn"><%= link_to "商品一覧", admin_items_path %></li>
             <li class="btn"><%= link_to "会員一覧", admin_customers_path %></li>
@@ -49,6 +49,7 @@
             <li class="btn"><%= link_to "ログイン", new_customer_session_path %></li>
             <% end %>
           </ul>
+
         </div>
       </div>
     </nav>
