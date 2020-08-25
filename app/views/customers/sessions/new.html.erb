@@ -1,42 +1,42 @@
 <% provide(:title, "ログイン") %>
+
 <div class="row">
 	<h3>会員の方はこちらからログイン</h3>
-	<div class="col-xs-12 registraion-form">
-		<div id="error_explanation">
-		  <%= flash[:alert] %>
-		</div>
+	<div class="registraion-form">
 
-		<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div id="error_explanation">
+      <%= flash[:alert] %>
+    </div>
 
-			<div class="form-group">
-			<table>
-				<tbody>
-					<tr>
-						<th><%= f.label :"メールアドレス　" %></th>
-						<td> <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" %>
-			  （テストアカウント：test1@test.com）</td>
-					</tr>
-					<tr>
-						<th><%= f.label :"パスワード" %></th>
-						<td><%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード" %>
-			  （パスワード：password）</td>
-					</tr>
-				</tbody>
-			</table>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-			</div>
+    <div class="form-group row">
+      <%= f.label :"メールアドレス", class: "col-xs-4 col-sm-2" %>
+      <div class="col-xs-4 col-sm-2">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "form-control" %>
+      </div>
+      test1@test.com
+    </div>
 
-			<div class="pull-right">
-			  <%= link_to "=>パスワードを忘れた方はこちら", new_password_path(resource_name), class: "btn-link" %>
-			</div>
+    <div class="form-group row">
+      <%= f.label :"パスワード", class: "col-xs-4 col-sm-2" %>
+      <div class="col-xs-4 col-sm-2">
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "form-control" %>
+      </div>
+      パスワード：password
+    </div>
 
-			<div class="actions">
-			  <%= f.submit "ログイン", class: "btn btn-primary" %>
-			</div>
-		<% end %>
-	</div>
+    <div class="pull-right">
+      <%= link_to "=>パスワードを忘れた方はこちら", new_password_path(resource_name), class: "btn-link" %>
+    </div>
 
-	<h3>登録がお済みでない方</h3>
-	<p><%= link_to "こちら", new_customer_registration_path %>から新規登録を行ってください。</p>
+    <div class="actions text-center">
+      <%= f.submit "ログイン", class: "btn btn-lg btn-primary" %>
+    </div>
+    
+    <% end %>
+
+    <h3>登録がお済みでない方</h3>
+    <p><%= link_to "こちら", new_customer_registration_path %>から新規登録を行ってください。</p>
+  </div>
 </div>
-
