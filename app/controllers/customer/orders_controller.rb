@@ -1,6 +1,8 @@
 class Customer::OrdersController < ApplicationController
   include ApplicationHelper
 
+  before_action :authenticate_customer!
+
   def index
     #ログインしている会員のみの注文履歴
 		@orders = current_customer.orders

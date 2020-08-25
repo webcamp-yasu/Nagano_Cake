@@ -1,5 +1,6 @@
 <% provide(:title, "カート") %>
 
+
 <h1>ショッピングカート</h1>
 
 <% if @cart_items.present? %>
@@ -48,8 +49,9 @@
 	<p>現在ショッピングカートに商品はありません。</p>
 	<%= link_to "トップに戻る", root_path, class:"btn btn-primary btn-xs" %>
 <% end %>
+
 	<div class="pull-right">
-			<% if @cart_items.present? %>
-				<%= link_to "注文に進む", new_order_path, class:"btn btn-success btn-lg" %>
-			<% end %>
+		<% if @cart_items.present? %>
+		<%= link_to "注文に進む", new_order_path, class:"btn btn-success btn-lg" %>
+		<% end %>
 	</div>
