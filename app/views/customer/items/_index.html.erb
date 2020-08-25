@@ -1,10 +1,12 @@
 <% items.each do |item| %>
 <div class="col-xs-6 col-sm-3">
-  <div>
-    <%= attachment_image_tag(item,:image, :fill, 250,200) %>
-  </div>
-  <p><%= link_to item.name, item_path(item) %></p>
-  <p><%= item.price %>円</p>
+	<div>
+		<%= attachment_image_tag(item,:image, :fill, 250,200) %>
+	</div>
+
+	<p><%= link_to item.name, item_path(item) %></p>
+	<p><%= item.price %>円</p>
 </div>
 <% end %>
 <div class="text-center col-xs-12 col-sm-12"><%= paginate items, :param_name => 'item_page' %></div>
+
