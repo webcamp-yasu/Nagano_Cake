@@ -7,4 +7,4 @@
   <p><%= item.price %>円</p>
 </div>
 <% end %>
-<div class="text-center"><%= paginate(items) %></div>
+<div class="text-center col-xs-12 col-sm-12"><%= paginate items, :param_name => 'item_page' %></div>
