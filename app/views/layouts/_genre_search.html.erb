@@ -11,7 +11,6 @@
     　<% %>
     <%= hidden_field_tag 'search[model]', 'genre' %>
     <%= hidden_field_tag 'search[content]', genre.name %>
-    <%= hidden_field_tag 'search[method]', '' %>
     <tr>
       <td>
         <%= submit_tag genre.name, class: "btn-link" %>
@@ -21,5 +20,4 @@
     <% end %>
   </tbody>
 </table>
-
-<div class="text-center"><%= paginate(genres) %></div>
+<div class="text-center"><%= paginate genres, :param_name => 'genre_page' %></div>
