@@ -48,7 +48,7 @@ Item.create!(
   price: 600,
   genre_id: 1,
   is_active: true,
-  image: open("./app/assets/images/cake1.jpg")
+  image: open("./app/assets/images/cake1.png")
 )
 
 Item.create!(
@@ -57,7 +57,7 @@ Item.create!(
   price: 1600,
   genre_id: 1,
   is_active: true,
-  image: open("./app/assets/images/cake2.jpg")
+  image: open("./app/assets/images/cake2.png")
 )
 
 Item.create!(
@@ -66,7 +66,7 @@ Item.create!(
   price: 300,
   genre_id: 4,
   is_active: true,
-  image: open("./app/assets/images/candy1.jpg")
+  image: open("./app/assets/images/candy1.png")
 )
 
 Item.create!(
@@ -75,7 +75,7 @@ Item.create!(
   price: 250,
   genre_id: 3,
   is_active: true,
-  image: open("./app/assets/images/cookie1.jpg")
+  image: open("./app/assets/images/cookie1.png")
 )
 
 Item.create!(
@@ -84,7 +84,7 @@ Item.create!(
   price: 450,
   genre_id: 2,
   is_active: true,
-  image: open("./app/assets/images/pudding1.jpg")
+  image: open("./app/assets/images/pudding1.png")
 )
 
 Order.create!([
