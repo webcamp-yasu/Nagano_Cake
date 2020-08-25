@@ -10,4 +10,5 @@ class Customer::ItemsController < ApplicationController
    	 @genres = Genre.page(params[:page]).per(10)
      @cart_item = CartItem.new
    end
+
 end
