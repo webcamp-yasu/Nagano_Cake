@@ -9,9 +9,11 @@
 			<p class="top-shopname">Nagano Cake へ！</p>
 		</div>
 	</div>
+
 	<div class="col-xs-3">
 		<%= render 'layouts/genre_search', genres: @genres %>
 	</div>
+
 	<div class="col-xs-9">
 		<h2>オススメ商品</h2>
 		<div>
@@ -20,6 +22,7 @@
 				<div>
 					<%= attachment_image_tag(items,:image, :fill, 100,100) %>
 				</div>
+
 				<div>
 					<%= link_to items.name, item_path(items.id) %>
 				</div>

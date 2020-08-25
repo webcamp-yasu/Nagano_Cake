@@ -7,43 +7,50 @@
 <h3><strong>支払方法</strong></h3>
 <div>
 	<%= f.radio_button :payment_method, :"クレジットカード"%>
-  <%= f.label "クレジットカード" %>
+	<%= f.label "クレジットカード" %>
 </div>
+
 <div>
 	<%= f.radio_button :payment_method, :"銀行振り込み" %>
-  <%= f.label "銀行振込" %>
+	<%= f.label "銀行振込" %>
 </div>
 
 <h3><strong>お届け先</strong></h3>
 <div>
 	<%= f.radio_button :shipping_address,"customer_address",checked: true %>
-  <%= f.label "ご自身の住所" %>
-  <p>
-	  <%= "#{current_customer.postal_code} #{current_customer.address}" %><br>
-	  <%= full_name(current_customer) %>
-  </p>
+	<%= f.label "ご自身の住所" %>
+	<p>
+		<%= "#{current_customer.postal_code} #{current_customer.address}" %><br>
+		<%= full_name(current_customer) %>
+	</p>
 </div>
+
 <div>
 	<%= f.radio_button :shipping_address,"registered_address",checked: true %>
-  <%= f.label "登録住所から選択"%>
-  <%= f.collection_select :address, @addresses, :id, :order_address, {id: "order_address"} %>
+	<%= f.label "登録住所から選択"%>
+	<%= f.collection_select :address, @addresses, :id, :order_address, {id: "order_address"} %>
 </div>
+
 <div>
 	<%= f.radio_button :shipping_address,"new_address",checked: true %>
 	<%= f.label :"新しいお届け先" %>
 </div>
+
 <div>
 	<%= f.label :"郵便番号(ハイフンなし)", class: "col-xs-2" %>
 	<%= f.text_field :postal_code %>
 </div>
+
 <div>
 	<%= f.label :"住所", class: "col-xs-2" %>
 	<%= f.text_field :address, :size=>"60" %>
 </div>
+
 <div>
 	<%= f.label :"宛名", class: "col-xs-2" %>
 	<%= f.text_field :address_name %>
 </div>
+
 <div class="text-center">
 	<%= f.submit "確認画面に進む", class: "btn btn-primary" %>
 </div>
