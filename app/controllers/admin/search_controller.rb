@@ -1,5 +1,7 @@
 class Admin::SearchController < ApplicationController
 
+  before_action :authenticate_admin!
+
   def search
     @content = params[:search][:content]
     @records = search_for(@content)
