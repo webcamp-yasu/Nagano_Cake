@@ -16,26 +16,32 @@
           <% end %>
         </td>
       </tr>
+
       <tr>
         <td class="col-xs-3">氏名</td>
         <td><%= full_name(@customer) %></td>
       </tr>
+
       <tr>
         <td class="col-xs-3">フリガナ</td>
         <td><%= full_name_kana(@customer) %></td>
       </tr>
+
       <tr>
         <td class="col-xs-3">郵便番号</td>
         <td><%= @customer.postal_code %></td>
       </tr>
+
       <tr>
         <td class="col-xs-3">住所</td>
         <td><%= @customer.address %></td>
       </tr>
+
       <tr>
         <td class="col-xs-3">電話番号</td>
         <td><%= @customer.phone_number %></td>
       </tr>
+
       <tr>
         <td class="col-xs-3">メールアドレス</td>
         <td><%= @customer.email %></td>
@@ -43,6 +49,7 @@
     </tbody>
   </table>
 </div>
+
 <div class="col-xs-12">
   <div class=”actions”>
     <%= link_to "編集する", edit_admin_customer_path, class: "btn btn-primary" %>
