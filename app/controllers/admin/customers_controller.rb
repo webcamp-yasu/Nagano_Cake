@@ -1,7 +1,6 @@
 class Admin::CustomersController < ApplicationController
 
-  #管理者ユーザーだけアクセスできる
-  # before_action :authenticate_admin!
+  before_action :authenticate_admin!
 
   def index #会員一覧ページ
     @customers = Customer.page(params[:page]).per(10)

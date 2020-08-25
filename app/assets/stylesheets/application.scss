@@ -51,7 +51,7 @@ footer {
    height: 80px;
 }
 .copyright {
-   margin-top: 20px;
+   margin-top: 30px;
 }
 .admin-login {
    margin-top: 20px;}
@@ -83,13 +83,14 @@ footer {
    background-image: url("/assets/about-cake.jpg");
    background-size: cover;
    background-position: center;
-   background-color:rgba(255,255,255,0.8);
+   background-color:rgba(255,255,255,0.7);
    background-blend-mode:lighten;
    margin-bottom: 20px;
 
 }
 .about-text {
-   padding-top: 40px;
+   padding-top: 20px;
+   margin-left: 50px;
 }
  /* フラッシュメッセージ */
 
