@@ -12,23 +12,23 @@ class Admin::SearchController < ApplicationController
   def search_for(model, content, method)
     if model == 'customer'
       if method == 'perfect'
-        Customer.where(email: content)
+        Customer.where(email: content).page(params[:page]).per(10)
       elsif method == 'forward'
-        Customer.where('email LIKE ?', content+'%')
+        Customer.where('email LIKE ?', content+'%').page(params[:page]).per(10)
       elsif method == 'backward'
-        Customer.where('email LIKE ?', '%'+content)
+        Customer.where('email LIKE ?', '%'+content).page(params[:page]).per(10)
       else
-        Customer.where('email LIKE ?', '%'+content+'%')
+        Customer.where('email LIKE ?', '%'+content+'%').page(params[:page]).per(10)
       end
     elsif model == 'item'
       if method == 'perfect'
-        Item.where(name: content)
+        Item.where(name: content).page(params[:page]).per(10)
       elsif method == 'forward'
-        Item.where('name LIKE ?', content+'%')
+        Item.where('name LIKE ?', content+'%').page(params[:page]).per(10)
       elsif method == 'backward'
-        Item.where('name LIKE ?', '%'+content)
+        Item.where('name LIKE ?', '%'+content).page(params[:page]).per(10)
       else
-        Item.where('name LIKE ?', '%'+content+'%')
+        Item.where('name LIKE ?', '%'+content+'%').page(params[:page]).per(10)
       end
     end
   end
