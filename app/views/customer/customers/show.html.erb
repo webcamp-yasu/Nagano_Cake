@@ -1,50 +1,53 @@
+<% provide(:title, "マイページ") %>
 <div id="error_explanation">
   <%= flash[:alert] %>
 </div>
 
 <h2>マイページ</h2>
 <p>
-  <strong>登録情報</strong>
+  <strong class="col-sm-2">登録情報</strong>
   <%= link_to "編集する", customer_edit_path, class: "btn btn-primary" %>
   <%= link_to "パスワードを変更する", edit_customer_registration_path, class: "btn btn-primary" %>
 </p>
 
+<div class="col-sm-7">
 <table class="table table-bordered">
   <tbody>
     <tr>
-      <td>氏名</td>
-      <td><%= full_name(@customer) %></td>
+      <td class="active col-sm-2">氏名</td>
+      <td class="col-sm-5"><%= full_name(@customer) %></td>
     </tr>
     <tr>
-      <td>カナ</td>
-      <td><%= full_name_kana(@customer) %></td>
+      <td class="active col-sm-2">カナ</td>
+      <td class="col-sm-5"><%= full_name_kana(@customer) %></td>
     </tr>
     <tr>
-      <td>郵便番号</td>
-      <td><%= @customer.postal_code %></td>
+      <td class="active col-sm-2">郵便番号</td>
+      <td class="col-sm-5"><%= @customer.postal_code %></td>
     </tr>
     <tr>
-      <td>住所</td>
+      <td class="active col-sm-2">住所</td>
       <td><%= @customer.address %></td>
     </tr>
     <tr>
-      <td>電話番号</td>
-      <td><%= @customer.phone_number %></td>
+      <td class="active col-sm-2">電話番号</td>
+      <td class="col-sm-5"><%= @customer.phone_number %></td>
     </tr>
     <tr>
-      <td>メールアドレス</td>
-      <td><%= @customer.email %></td>
+      <td class="active col-sm-2">メールアドレス</td>
+      <td class="col-sm-5"><%= @customer.email %></td>
     </tr>
   </tbody>
 </table>
-
-<div>
+</div>
+<div class="col-sm-5"></div>
+<div class="col-sm-12">
   <p>
-    <strong>配送先</strong>
+    <strong class="col-sm-2">配送先</strong>
     <%= link_to "一覧を見る", addresses_path, class: "btn btn-primary" %>
   </p>
   <p>
-    <strong>注文履歴</strong>
+    <strong class="col-sm-2">注文履歴</strong>
     <%= link_to "一覧を見る", orders_path, class: "btn btn-primary" %>
   </p>
 </div>

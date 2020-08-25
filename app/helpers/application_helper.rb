@@ -1,5 +1,15 @@
 module ApplicationHelper
 
+  #タブのタイトル表記
+  def full_title(title = "")
+    base_title = "NaganoCake"
+    if admin_signed_in?
+      base_title + " | " + "[管理者] #{title}"
+    else
+      base_title + " | " + "#{title}"
+    end
+  end
+
   def full_name(customer)
     "#{customer.last_name} #{customer.first_name}"
   end
@@ -9,14 +19,14 @@ module ApplicationHelper
   end
 
   def tax_price(price)#税込価格
-	(price * 1.1).ceil
+	  (price * 1.1).floor
   end
 
   def sub_total(sub)#小計
-  	((tax_price(sub.item.price)) * sub.amount)
+  	tax_price(sub.item.price) * sub.amount
   end
 
-  def total_price(totals)#支払い金額
+  def total_price(totals)#合計金額
   	price = 0
   	totals.each do |total|
   		price += sub_total(total)

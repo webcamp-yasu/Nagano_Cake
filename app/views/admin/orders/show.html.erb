@@ -1,11 +1,13 @@
+<% provide(:title, "注文履歴詳細") %>
+
 <h1>注文履歴詳細</h1>
 <table class="table">
 	<tbody>
 		<tr>
 			<td>購入者</td>
 			<td>
-				<%= link_to admin_customers_path(@customer) do %>
-							<%= @customer.last_name %><%= @customer.first_name %>
+				<%= link_to admin_customer_path(@customer) do %>
+							<%= full_name(@customer) %>
 				<% end %>
 			</td>
 		</tr>
@@ -19,7 +21,7 @@
 		</tr>
 		<tr>
 			<td>注文ステータス</td>
-			<td><%= form_with model: @order do |f| %>
+			<td><%= form_with model: @order, url: admin_order_path(@order) do |f| %>
                     	<%= f.select :status, Order.statuses_i18n.keys.map { |k| [Order.statuses_i18n[k], k]} %>
                     	<%= f.submit '更新'%>
             	<% end %>
@@ -42,10 +44,10 @@
 		<% @order.order_details.each do |order_detail| %>
 			<tr>
 				<td><%= order_detail.item.name %></td>
-				<td><%= (order_detail.item.price).to_i %></td>
+				<td><%= order_detail.item.price %></td>
 				<td><%= order_detail.amount %></td>
-				<td><%= (order_detail.total_item_price).to_i %></td>
-				<td><%= form_with model: order_detail do |f| %>
+				<td><%= sub_total(order_detail) %></td>
+				<td><%= form_with model: order_detail, url: admin_order_details_path(@order) do |f| %>
 	                    	<%= f.select :production_status, Order_detail.production_statuses_i18n.keys.map { |k| [Order_detail.production_statuses_i18n[k], k]} %>
 	                    	<%= f.submit '更新' %>
 	            	<% end %>
@@ -60,7 +62,7 @@
 		<tbody>
 			<tr>
 				<td>商品合計</td>
-				<td><%= (@order.total_price).to_i %>円</td>
+				<td><%= @order.billing_amount - @order.postage %>円</td>
 			</tr>
 			<tr>
 				<td>送料</td>

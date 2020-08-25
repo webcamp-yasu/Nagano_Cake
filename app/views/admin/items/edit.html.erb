@@ -1,32 +1,59 @@
+<% provide(:title, "商品編集") %>
+
 <h2>商品編集</h2>
 <div class="row">
   <%= form_for(@item, url:admin_item_path) do |f| %>
-  <div class="form-group">
-    <%= attachment_image_tag @item, :image, :fill, 300, 250 %>
+  <div class="form-group col-xs-12 col-sm-4">
+    <div class="item-image">
+      <%= attachment_image_tag @item, :image, :fill, 300, 250, fallback: "no_image.png", size:"300x250" %>
+    </div>
     <%= f.attachment_field :image %>
   </div>
-  <div class="form-group">
-    <%= f.label :"商品名" %>
-    <%= f.text_field :name %>
-  </div>
-  <div class="form-group">
-    <%= f.label :"商品説明" %>
-    <%= f.text_area :detail %>
-  </div>
-  <div class="form-group">
-    <%= f.label :"ジャンル" %>
-    <%= f.collection_select :genre_id, Genre.all, :id, :name %>
-  </div>
-  <div class="form-group">
-    <%= f.label :"税抜価格" %>
-    <%= f.number_field :price %>円
-  </div>
-  <div class="form-group">
-    <%= f.label :"販売ステータス" %>
-    <%= f.select :is_active,[["販売中",true],["販売中止中",false]] %>
-  </div>
-  <div class="actions">
-    <%= f.submit '変更を保存', class: "btn btn-primary pull-right"%>
+  <div class="col-xs-12 col-sm-5">
+    <div class="form-group row">
+      <%= f.label :"商品名", class: "col-xs-3" %>
+      <div class="col-xs-9 col-sm-4">
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label :"商品説明", class: "col-xs-3" %>
+      <div class="col-xs-9 col-sm-8">
+      <%= f.text_area :detail, class: "form-control" %>
+    </div>
+    <div class="form-group row">
+      <%= f.label :"ジャンル", class: "col-xs-3" %>
+      <%= f.collection_select :genre_id, Genre.all, :id, :name %>
+    </div>
+    <div class="form-group row">
+      <%= f.label :"税抜価格", class: "col-xs-3" %>
+      <div class="col-xs-3 col-sm-4">
+        <%= f.number_field :price, class: "form-control" %>円
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label :"販売ステータス", class: "col-xs-3" %>
+      <%= f.select :is_active,[["販売中",true],["販売中止中",false]] %>
+    </div>
+    <div class="actions">
+      <%= f.submit '変更を保存', class: "btn btn-primary pull-right"%>
+    </div>
   </div>
   <% end %>
 </div>
+
+<!-- 画像プレビュー機能 -->
+<script>
+  $(function(){
+  // inputのidから情報の取得
+  $('#item_image').on('change', function (e) {
+// ここから既存の画像のurlの取得
+var reader = new FileReader();
+reader.onload = function (e) {
+  $(".image").attr('src', e.target.result);
+}
+// ここまで
+  reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
+});
+});
+</script>
