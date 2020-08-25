@@ -17,12 +17,12 @@
 
   <%= render 'layouts/search' %>
   <!-- レイアウト見にくいのでとりあえず下記追加 -->
-  <div class="main">
-    <div class="container">
+<div class="container main">
+
       <p id="notice"><%= notice %></p>
       <%= yield %>
-    </div>
-  </div>
+</div>
+
   <footer class="fixed-bottom">
     <div class="container">
       <p class="btn btn-default admin-login pull-right"><%= link_to "管理者ログインはこちら", new_admin_session_path %></p>
