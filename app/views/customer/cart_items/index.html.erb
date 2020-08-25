@@ -1,50 +1,54 @@
 <% provide(:title, "カート") %>
 
-<h1 class="pull-left">ショッピングカート</h1>
 
-<table class="table">
-	<thead>
-		<tr class="active">
-			<th>商品名</th>
-			<th>単価（税込）</th>
-			<th>数量</th>
-			<th>小計</th>
-			<th>	<% if @cart_items.present? %>
+<h1>ショッピングカート</h1>
+
+<% if @cart_items.present? %>
+	<table class="table">
+		<thead>
+			<tr class="active">
+				<th>商品名</th>
+				<th>単価（税込）</th>
+				<th>数量</th>
+				<th>小計</th>
+				<th>	<% if @cart_items.present? %>
 				<%= link_to "カートを空にする", cart_items_path, method: :delete, data: { confirm: '本当に消しますか？' }, class:"pull-right" %>
 				<% end %></th>
 			</tr>
 		</thead>
-
 		<tbody>
-			<% @cart_items.each do |cart_item| %>
-			<tr>
-				<td>
-					<%= link_to items_path(cart_item.item) do %>
-					<%= attachment_image_tag(cart_item.item, :image,　format: 'jpeg', size: "80x80") %>
+				<% @cart_items.each do |cart_item| %>
+					<tr>
+						<td>
+							<%= link_to items_path(cart_item.item) do %>
+						 		<%= attachment_image_tag(cart_item.item, :image,　format: 'jpeg', size: "80x80") %>
+							<% end %>
+							<%= cart_item.item.name %>
+						</td>
+						<td><%= tax_price(cart_item.item.price) %>円</td>
+						<td>
+							<%= form_for cart_item, url:cart_item_path(cart_item.id) do |f| %>
+							  <%= f.number_field :amount, size: 10, min: 1 %>
+							  <%= f.submit "変更", class:"btn btn-primary"%>
+							<% end %>
+						</td>
+						<td><%= sub_total(cart_item) %>円</td>
+						<td><%= link_to "削除", cart_item_path(cart_item), method: :delete, class:"btn btn-danger pull-right" %></td>
+					</tr>
 					<% end %>
-					<%= cart_item.item.name %>
-				</td>
-				<td><%= tax_price(cart_item.item.price) %>円</td>
-				<td>
-					<%= form_for cart_item, url:cart_item_path(cart_item.id) do |f| %>
-					<%= f.number_field :amount, size: 10, min: 1 %>
-					<%= f.submit "変更", class:"btn btn-primary"%>
-					<% end %>
-				</td>
-				<td><%= sub_total(cart_item) %>円</td>
-				<td><%= link_to "削除", cart_item_path(cart_item), method: :delete, class:"btn btn-danger pull-right" %></td>
-			</tr>
-			<% end %>
-
-			<tr>
-				<th><%= link_to "買い物を続ける", items_path, class:"btn btn-primary" %></th>
-				<th></th>
-				<th>合計金額</th>
-				<th><%= total_price(@cart_items) %>円</th>
-				<th></th>
-			</tr>
+				<tr>
+					<th><%= link_to "買い物を続ける", items_path, class:"btn btn-primary" %></th>
+					<th></th>
+					<th>合計金額</th>
+					<th><%= total_price(@cart_items) %>円</th>
+					<th></th>
+				</tr>
 		</tbody>
 	</table>
+<% else %>
+	<p>現在ショッピングカートに商品はありません。</p>
+	<%= link_to "トップに戻る", root_path, class:"btn btn-primary btn-xs" %>
+<% end %>
 
 	<div class="pull-right">
 		<% if @cart_items.present? %>
