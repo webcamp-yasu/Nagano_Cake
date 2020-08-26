@@ -15,8 +15,13 @@ class Admin::OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     @order.update(order_params)
-    flash[:notice] = "注文ステータスを更新しました"
-    redirect_to admin_orders_path(order)
+    if params[:order][:status] == "confirmpayment"
+      @order.order_details.update(production_status: "waiting")
+      flash[:notice] = "注文ステータスと製作ステータスを更新しました"
+    else
+      flash[:notice] = "注文ステータスを更新しました"
+    end
+    redirect_to admin_order_path(@order)
   end
 
   private
