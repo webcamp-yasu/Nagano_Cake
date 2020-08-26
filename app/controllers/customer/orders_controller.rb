@@ -46,6 +46,7 @@ class Customer::OrdersController < ApplicationController
       @order.postal_code  = params[:order][:postal_code]
       @order.address      = params[:order][:address]
       @order.address_name = params[:order][:address_name]
+      @shipping = "auto_add_address"
     end
   end
 
@@ -53,6 +54,16 @@ class Customer::OrdersController < ApplicationController
     @order = current_customer.orders.new(order_params)
     @order.save
     redirect_to thanks_orders_path
+
+    #新しい住所を選択した場合に配送先住所として保存
+    if @shipping = "auto_add_address"
+      Address.create(
+        customer_id: current_customer.id,
+        postal_code: params[:order][:postal_code],
+        address: params[:order][:address],
+        name: params[:order][:address_name]
+      )
+    end
 
     #カート内商品を注文詳細に受け渡して、カートを空にする
     @cart_items = current_customer.cart_items
