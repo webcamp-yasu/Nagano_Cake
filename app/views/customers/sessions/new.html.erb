@@ -6,6 +6,7 @@
 
     <div id="error_explanation">
       <%= flash[:alert] %>
+      <%= flash[:error] %>
     </div>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>

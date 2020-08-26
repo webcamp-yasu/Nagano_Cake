@@ -18,4 +18,9 @@ class Customer < ApplicationRecord
              format: {with: /\A[\p{katakana}\p{blank}ー－]+\z/,
                       message: "カタカナで入力して下さい。"}
 
+  #退会機能
+  def active_for_authentication?
+    super && (self.is_deleted == false)
+  end
+
 end
