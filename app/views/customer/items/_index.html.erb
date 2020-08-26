@@ -1,7 +1,7 @@
 <% items.each do |item| %>
 <div class="col-xs-6 col-sm-3">
 	<div>
-		<%= attachment_image_tag(item,:image, :fill, 250,200) %>
+		<%=  link_to attachment_image_tag(item,:image, :fill, 250,200), item_path(item) %>
 	</div>
 
 	<p><%= link_to item.name, item_path(item) %></p>
