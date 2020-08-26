@@ -6,13 +6,13 @@ class ApplicationController < ActionController::Base
 
   #会員新規登録時のパス
   def after_sign_up_path_for(resource)
-    mypage_customers_path
+    root_path
   end
 
   #ログイン時のパス
   def after_sign_in_path_for(resource)
     if customer_signed_in?
-      mypage_customers_path
+      root_path
     else
       admin_root_path
     end
