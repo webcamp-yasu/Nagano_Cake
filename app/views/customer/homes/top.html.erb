@@ -1,12 +1,12 @@
 <div class="row">
 	<% provide(:title, "ホーム") %>
 	<div class="top-image">
-		<div class="top-text">
+		<div class="top-text col-sm-offset-1">
 			<p>
-				ようこそ、<br>
-				長野の小さな洋菓子店<br>
+				　ようこそ、<br>
+				　長野の小さな洋菓子店<br>
 			</p>
-			<p class="top-shopname">Nagano Cake へ！</p>
+			<p class="top-shopname">　Nagano Cake へ！</p>
 		</div>
 	</div>
 
@@ -19,7 +19,7 @@
 		<% @random.each do |items| %>
 		<div class="col-xs-3">
 			<div>
-				<%= link_to attachment_image_tag(items,:image, :fill, 100,100), item_path(items.id) %>
+				<%= link_to attachment_image_tag(items,:image, :fill, 120,120), item_path(items.id) %>
 			</div>
 
 			<div>
