@@ -4,7 +4,7 @@ class Customer::SearchController < ApplicationController
     @model = params[:search][:model]
     @content = params[:search][:content]
     @records = search_for(@model, @content)
-    @genres = Genre.page(params[:genre_page]).per(10)
+    @genres = Genre.page(params[:genre_page]).per(4)
   end
 
   private
