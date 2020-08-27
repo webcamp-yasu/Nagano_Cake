@@ -4,7 +4,7 @@ class Customer::HomesController < ApplicationController
 	end
 
 	def top
-    @genres = Genre.page(params[:genre_page]).per(10)
+    @genres = Genre.page(params[:genre_page]).per(4)
     @random = Item.order("RANDOM()").limit(4)
 	end
 end
