@@ -27,7 +27,7 @@
   </div>
 </div>
 
-<div class="form-group row">
+<div class="form-group row mypage-editname">
   <%= f.label :"フリガナ", class: "col-xs-12 col-sm-12 col-form-label" %>
   <%= f.label :"（セイ）", class: "col-xs-3 col-sm-3 col-form-label" %>
   <div class="col-xs-7 col-sm-2">
@@ -43,28 +43,28 @@
 
 <div class="form-group row">
   <%= f.label :"メールアドレス", class: "col-xs-12 col-sm-3 col-form-label" %>
-  <div class="col-xs-10 col-sm-3">
+  <div class="col-xs-10 col-sm-4">
     <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "form-control" %>
   </div>
 </div>
 
 <div class="form-group row">
   <%= f.label :"郵便番号（ハイフンなし）", class: "col-xs-12 col-sm-3 col-form-label" %>
-  <div class="col-xs-6 col-sm-3">
+  <div class="col-xs-6 col-sm-4">
     <%= f.text_field :postal_code, autofocus: true, placeholder: "郵便番号", class: "form-control" %>
   </div>
 </div>
 
 <div class="form-group row">
   <%= f.label :"住所", class: "col-xs-12 col-sm-3 col-form-label" %>
-  <div class="col-xs-10 col-sm-5">
+  <div class="col-xs-10 col-sm-4">
     <%= f.text_field :address, autofocus: true, placeholder: "住所", class: "form-control" %>
   </div>
 </div>
 
 <div class="form-group row">
   <%= f.label :"電話番号（ハイフンなし）", class: "col-xs-12 col-sm-3 col-form-label" %>
-  <div class="col-xs-6 col-sm-3">
+  <div class="col-xs-6 col-sm-4">
     <%= f.text_field :phone_number, autofocus: true, placeholder: "電話番号", class: "form-control" %>
   </div>
 </div>
