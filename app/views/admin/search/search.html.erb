@@ -1,0 +1,4 @@
+<% provide(:title, "検索結果") %>
+
+<h2>「<%= @content %>」  と一致した商品</h2>
+<%= render 'admin/items/index', items: @records %>

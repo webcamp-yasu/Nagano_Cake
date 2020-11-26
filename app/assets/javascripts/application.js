@@ -13,4 +13,49 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require jquery
+//= require bootstrap-sprockets
+//= require jquery.jposta
 //= require_tree .
+
+// 新規登録住所検索機能
+$(function(){
+  $(document).on('turbolinks:load', () => {
+    $('#customer_postal_code').jpostal({
+      postcode: [
+        '#customer_postal_code'
+      ],
+      address: {
+        "#customer_address": "%3%4%5%6%7"
+      }
+    });
+  });
+});
+
+// 配送先住所検索機能
+$(function(){
+  $(document).on('turbolinks:load', () => {
+    $('#address_postal_code').jpostal({
+      postcode: [
+        '#address_postal_code'
+      ],
+      address: {
+        "#address_address": "%3%4%5%6%7"
+      }
+    });
+  });
+});
+
+// 注文情報入力住所検索機能
+$(function(){
+  $(document).on('turbolinks:load', () => {
+    $('#order_new_postal_code').jpostal({
+      postcode: [
+        '#order_new_postal_code'
+      ],
+      address: {
+        "#order_new_address": "%3%4%5%6%7"
+      }
+    });
+  });
+});

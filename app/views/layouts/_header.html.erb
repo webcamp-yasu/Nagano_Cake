@@ -1,0 +1,64 @@
+<header>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample7">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <% if admin_signed_in? %>
+          <a class="navbar-brand" href="/admin">
+        <% else %>
+         <a class="navbar-brand" href="/">
+        <% end %>
+          <img alt="Logo" src="/assets/logo.png" class="logo">
+        </a>
+        <div class="shopname pull-left">
+          <% if admin_signed_in? %>
+            <a href="/admin">
+            <% else %>
+            <a href="/">
+          <% end %>
+            <p class="shopname1">長野の小さな洋菓子店</p>
+            <p class="shopname2">Nagano Cake</p></a>
+          </div>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarEexample7">
+          <ul class="nav navbar-nav navbar-left"></ul>
+          <ul class="nav navbar-nav navbar-right">
+            <% if customer_signed_in? %>
+            <li role="presentation" class="dropdown mypage-link">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                ようこそ、<%= full_name(current_customer) %>さん！
+                <span class="caret"></span>
+              </a>
+
+              <ul class="dropdown-menu" role="menu">
+                <li class="btn center-block"><%= link_to "マイページ", mypage_customers_path %></li>
+                <li class="btn center-block"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
+              </ul>
+            </li>
+
+            <li class="btn"><%= link_to "商品一覧", items_path %></li>
+            <li class="btn"><%= link_to "カート", cart_items_path %></li>
+            <% elsif admin_signed_in? %>
+            <li class="btn"><%= link_to "商品一覧", admin_items_path %></li>
+            <li class="btn"><%= link_to "会員一覧", admin_customers_path %></li>
+            <li class="btn"><%= link_to "注文履歴一覧", admin_orders_path %></li>
+            <li class="btn"><%= link_to "ジャンル一覧", admin_genres_path %></li>
+            <li class="btn"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+            <% else %>
+            <li class="btn"><%= link_to "About", about_path %></li>
+            <li class="btn"><%= link_to "商品一覧", items_path %></li>
+            <li class="btn"><%= link_to "新規登録", new_customer_registration_path %></li>
+            <li class="btn"><%= link_to "ログイン", new_customer_session_path %></li>
+            <% end %>
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+  </header>

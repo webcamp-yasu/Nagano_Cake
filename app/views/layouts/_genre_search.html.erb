@@ -1,0 +1,23 @@
+<table class="table genre-box">
+  <thead>
+    <tr>
+      <th class="h4">ジャンル検索</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% genres.each do |genre| %>
+    <%= form_tag(search_path, method: :get) do %>
+    　<% %>
+    <%= hidden_field_tag 'search[model]', 'genre' %>
+    <%= hidden_field_tag 'search[content]', genre.name %>
+    <tr>
+      <td>
+        <%= submit_tag genre.name, class: "btn-link" %>
+      </td>
+    </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+<div class="text-center"><%= paginate genres, :param_name => 'genre_page' %></div>

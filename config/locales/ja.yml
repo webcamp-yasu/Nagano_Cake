@@ -1,0 +1,45 @@
+ja:
+  enums:
+    order:
+      status:
+        waitingforpayment: "入金待ち"
+        confirmpayment: "入金確認"
+        makingitem: "製作中"
+        prepareshipment: "発送準備中"
+        confitmedshipment: "発送済み"
+
+      payment_method:
+        creditcard: "クレジットカード"
+        banktransfer: "銀行振込"
+
+    order_detail:
+      production_status:
+        new: "着手不可"
+        waiting: "製作待ち"
+        working: "製作中"
+        done: "製作完了"
+  views:
+    pagination:
+      first: '最初'
+      last: '最後'
+      previous: '前'
+      next: '次'
+      truncate: '...'
+
+
+  activerecord:
+    models:
+      address: 配送先
+    attributes:
+      address:
+        name: 宛名
+        postal_code: 郵便番号
+        address: 住所
+
+  activerecord:
+    models:
+      genre: ジャンル
+    attributes:
+      genre:
+        name: ジャンル
+

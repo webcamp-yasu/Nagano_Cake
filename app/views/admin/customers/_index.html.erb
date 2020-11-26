@@ -1,0 +1,29 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>会員ID</th>
+      <th><u>氏名</u></th>
+      <th>メールアドレス</th>
+      <th>ステータス</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% customers.each do |customer| %>
+      <tr>
+        <td><%= customer.id %></td>
+        <td><u><%= link_to full_name(customer), admin_customer_path(customer), class: "btn-link" %></u></td>
+        <td><%= customer.email %></td>
+        <td>
+          <% if customer.is_deleted == true %>
+            <p>退会済</p>
+          <% else %>
+            <p>有効</p>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="text-center"><%= paginate(customers) %>

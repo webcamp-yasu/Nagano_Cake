@@ -1,40 +1,66 @@
+<% provide(:title, "マイページ") %>
+<div id="error_explanation">
+  <%= flash[:alert] %>
+</div>
+
 <h2>マイページ</h2>
-<p>登録情報</p>
-<!-- %= link_to "編集する", #会員情報編集ページ, class: "btn btn-primary" % -->
-<!-- %= link_to "パスワードを変更する", #パスワード変更ページ, class: "btn btn-primary" % -->
+<div class="row">
+  <div class="co-xs-12 col-sm-7">
+    <h4>
+      <strong>登録情報</strong>
+    </h4>
 
-<table>
-  <tbody>
-    <tr>
-      <td>氏名</td>
-      <td>#フルネーム(@customer)</td>
-    </tr>
-    <tr>
-      <td>カナ</td>
-      <td>#フルネームカナ(@customer)</td>
-    </tr>
-    <tr>
-      <td>郵便番号</td>
-      <td><%= @customer.postal_code %></td>
-    </tr>
-    <tr>
-      <td>住所</td>
-      <td><%= @customer.address %></td>
-    </tr>
-    <tr>
-      <td>電話番号</td>
-      <td><%= @customer.phone_number %></td>
-    </tr>
-    <tr>
-      <td>メールアドレス</td>
-      <td><%= @customer.email %></td>
-    </tr>
-  </tbody>
-</table>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td class="active col-xs-3 col-sm-4">氏名</td>
+            <td class="col-xs-"><%= full_name(@customer) %></td>
+          </tr>
 
-<div>
-  <p>配送先</p>
-  <!-- %= link_to "一覧を見る", #配送先一覧ページ class: "btn btn-primary"% -->
-  <p>注文履歴</p>
-  <!-- %= link_to "一覧を見る", #注文履歴一覧ページ class: "btn btn-primary"% -->
+          <tr>
+            <td class="active">カナ</td>
+            <td class=""><%= full_name_kana(@customer) %></td>
+          </tr>
+
+          <tr>
+            <td class="active">郵便番号</td>
+            <td class=""><%= @customer.postal_code %></td>
+          </tr>
+
+          <tr>
+            <td class="active">住所</td>
+            <td><%= @customer.address %></td>
+          </tr>
+
+          <tr>
+            <td class="active ">電話番号</td>
+            <td class=""><%= @customer.phone_number %></td>
+          </tr>
+
+          <tr>
+            <td class="active">メールアドレス</td>
+            <td class=""><%= @customer.email %></td>
+          </tr>
+          <tr>
+            <td class="active">パスワード</td>
+            <td class=""><%= link_to "パスワードを変更する", edit_customer_registration_path %></td>
+          </tr>
+        </tbody>
+      </table>
+      <div>
+        <%= link_to "編集する", customer_edit_path, class: "btn btn-primary pull-right" %>
+      </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-5">
+      <h4>
+        <strong class="col-xs-4">配送先</strong>
+        <%= link_to "一覧を見る", addresses_path, class: "btn btn-default" %>
+      </h4>
+
+      <h4>
+        <strong class="col-xs-4">注文履歴</strong>
+        <%= link_to "一覧を見る", orders_path, class: "btn btn-default" %>
+      </h4>
+  </div>
 </div>

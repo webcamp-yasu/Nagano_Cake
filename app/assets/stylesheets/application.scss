@@ -1,0 +1,149 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+ /* バックグラウンドとフォントタイプ */
+ body {
+   font-family: "Montserrat","筑紫B丸ゴシック","游ゴシック",YuGothic,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo,sans-serif;
+   color: #696363;
+   background-blend-mode: lighten;
+   padding-top: 80px;
+ }
+ a {
+  text-decoration: none;
+}
+
+a:hover {
+   color: #000000;
+   text-decoration: none;
+ }
+h3, h1, h2 {
+   margin-bottom: 30px;
+}
+ /* ヘッダー */
+.navbar-default {
+   background-color: #FDFCF5;
+}
+.logo {
+   width: 100px;
+}
+.navbar-brand {
+   padding-top: 3px;
+}
+.shopname {
+   text-align: center;
+   margin-top: 15px;
+}
+.shopname1 {
+   font-size: 10px;
+   margin-bottom: 0px;
+}
+.mypage-link {
+   margin-top: 7px;
+}
+/* フッター */
+footer {
+   background-color: #F2F2F2;
+   height: 80px;
+   width: 100%;
+}
+.copyright {
+   margin-top: 30px;
+}
+.admin-login {
+   margin-top: 20px;}
+
+.main {
+   margin-bottom: 100px;
+}
+.top-image {
+   width: 100%;
+   height: 400px;
+   background-image: url("/assets/top_image.jpg");
+   background-size: cover;
+   background-position: center center;
+}
+
+.top-text {
+   padding-top:150px;
+
+   font-size: 15px;
+}
+.top-shopname {
+   margin-top: 10px;
+   font-size: 20px;
+}
+
+.about-page {
+   width: 100%;
+   height: 450px;
+   background-image: url("/assets/about-cake.jpg");
+   background-size: cover;
+   background-position: center;
+   background-color:rgba(255,255,255,0.7);
+   background-blend-mode:lighten;
+   margin-bottom: 20px;
+
+}
+.about-text {
+   padding-top: 20px;
+   margin-left: 50px;
+}
+ /* フラッシュメッセージ */
+
+ #notice {
+   color: green;
+ }
+
+ #error_explanation {
+   color: red;
+ }
+
+ /* ウェルカムメッセージ */
+ .welcome-message {
+   margin-top: 23px;
+ }
+
+ /* バッジ */
+
+ .badge-warning {
+   background-color: yellow;
+ }
+
+ .badge-success {
+   background-color: green;
+ }
+
+ .badge-danger {
+   background-color: red;
+ }
+
+ /* 検索フォーム */
+ #search_content {
+   width: 220px;
+ }
+
+ /* 登録済住所フォーム */
+ #order_address {
+   width: 350px;
+ }
+  /* 新規登録フォーム */
+ .registraion-form {
+   margin-top: 20px;
+ }
+
+
